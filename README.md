@@ -45,6 +45,6 @@ $ yarn start
 And that's basically it. SpringType will start on `http://localhost:4444` and show "Hello, world!".
 
 {% hint style="info" %}
-That was easy! Let's make some changes to `src/index.tsx` and watch how hot module replacement will auto-magically reload the entry web component.
+**That was easy, wasn't it?!** Let's make some changes to `src/index.tsx` and watch how hot module replacement will auto-magically reload the entry web component.
 {% endhint %}
 
