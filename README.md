@@ -14,7 +14,7 @@ Primary design goals of SpringType are: Simplicity, Minimalism, Performance and 
 
 We've created a neat CodeSandbox example based on the starter-scratch project template:
 
-{% embed url="https://codesandbox.io/s/github/springtype-org/st-starter-web/tree/master/?from-embed" caption="\"Hello, world!\" in SpringType" %}
+{% embed url="https://codesandbox.io/s/github/springtype-org/st-starter-web/tree/master/?autoresize=1&fontsize=12&hidenavigation=1" caption="\"Hello, world!\" in SpringType" %}
 
 ### Dive-in locally
 
