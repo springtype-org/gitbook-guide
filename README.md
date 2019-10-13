@@ -14,6 +14,10 @@ Primary design goals of SpringType are: Simplicity, Minimalism, Performance and 
 
 We've created a neat CodeSandbox example based on the starter-scratch project template:
 
+{% embed url="https://codesandbox.io/embed/github/springtype-org/st-starter-web/tree/master" %}
+
+
+
 ### Dive-in locally
 
 To try SpringType right now on your machine, open a terminal and run:
