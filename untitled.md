@@ -4,7 +4,7 @@ description: A few words on the structure of the framework.
 
 # Bits and Pieces
 
-### Core
+### [️](https://emojipedia.org/gear/)Core [⚙](https://emojipedia.org/gear/)
 
 The frameworks core package wraps up implementations for basic architectural needs:
 
@@ -19,7 +19,7 @@ The frameworks core package wraps up implementations for basic architectural nee
 
 These API's are available in all execution contexts, say Server \(Node.js\) and Web \(browsers\).
 
-### Web
+### Web [🌐](https://emojipedia.org/globe-with-meridians/)
 
 This package contains all implementations necessary for modern web development:
 
@@ -28,13 +28,13 @@ This package contains all implementations necessary for modern web development:
 * [Client-side DOM Router](https://github.com/springtype-org/springtype/tree/master-v2/src/web/router) `router`
 * [Typed StyleSheets \(TSS\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/tss) `tss`
 
-### Server
+### Server [🎛](https://emojipedia.org/control-knobs/)
 
 To complete the feature-set and allow developers to use the same APIs full-stack, SpringType comes with a powerful, server-implementation agnostic Node.js server middleware:
 
 * T.B.A
 
-### Bundle
+### Bundle [📦](https://emojipedia.org/package/)
 
 Finally, to transpile and bundle all assets of a frontend or backend application, the bundle-package uses FuseBox to create high performance production builds and have a blazing fast developer experience with hot module replacement and in-memory code caching.
 
