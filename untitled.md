@@ -8,14 +8,13 @@ description: A few words on the structure of the framework.
 
 The frameworks core package wraps up implementations for basic architectural needs:
 
-* [Globals](https://github.com/springtype-org/springtype/tree/master-v2/src/core/st) `st`
-* [Language Support](https://github.com/springtype-org/springtype/tree/master-v2/src/core/lang) `lang`
-* [Logging](https://github.com/springtype-org/springtype/tree/master-v2/src/core/log) `log`
-* [Change Detection](https://github.com/springtype-org/springtype/tree/master-v2/src/core/cd) `cd`
-* [Dependency Injection](https://github.com/springtype-org/springtype/tree/master-v2/src/core/di) `di`
-* [State Management](https://github.com/springtype-org/springtype/tree/master-v2/src/core/state) `state`
-* [Global Context Management](https://github.com/springtype-org/springtype/tree/master-v2/src/core/context) `context`
-* [Internationalization](https://github.com/springtype-org/springtype/tree/master-v2/src/core/i18n) `i18n`
+* [Globals](https://github.com/springtype-org/springtype/tree/master-v2/src/core/st) `st` Implements the `st` and `$st` global framework API.
+* [Language Support](https://github.com/springtype-org/springtype/tree/master-v2/src/core/lang) `lang` Helpful shortcut functions like `isPrimitive()`.
+* [Logging](https://github.com/springtype-org/springtype/tree/master-v2/src/core/log) `log` Log variables using `st.info(...)`, `st.warn(...)` and `st.error()`.
+* [Change Detection](https://github.com/springtype-org/springtype/tree/master-v2/src/core/cd) `cd` Proxy based object change detector, exposed as `st.onChange(...)`. 
+* [Dependency Injection](https://github.com/springtype-org/springtype/tree/master-v2/src/core/di) `di` Class-property based DI, exposes: `@inject(...)` and `@injectable(...)`. 
+* [Global Context Management](https://github.com/springtype-org/springtype/tree/master-v2/src/core/context) `context` Change Detection based global contexts, exposes `@context(...)`, `initContext(...)` and `getContext(...)`. 
+* [Internationalization](https://github.com/springtype-org/springtype/tree/master-v2/src/core/i18n) `i18n` Allows for easy JSON-file based translations. Exposes: `@translation(...)`, `@formatter(...)`, `st.t(...)`. 
 
 These API's are available in all execution contexts, say Server \(Node.js\) and Web \(browsers\).
 
