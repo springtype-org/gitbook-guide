@@ -1,18 +1,16 @@
 ---
-description: 'Short introduction on SpringType, it''s motivation and how to quickly dive-in.'
+description: 'A quick introduction to SpringType. Let''s say "Hello, world!"'
 ---
 
-# Introduction
+# Getting Started
 
 ## What is SpringType?
 
-SpringType is a next-generation frontend framework to build web user interfaces for PWA's, websites, apps and alike. It promotes the use of TypeScript and modern browser API's.
-
-Primary design goals of SpringType are: Simplicity, Minimalism, Performance and Developer Experience. But for now, we stop talking and try to impress you with a real project.
+SpringType means simply powerful Website, PWA and App development. It promotes the use of TypeScript and modern browser API's. Novel algorithms allow for less complexity, less code, higher performance and a better developer experience.
 
 ### Peek a boo
 
-We've created a neat CodeSandbox example based on the starter-scratch project template:
+We've created a neat CodeSandbox example based on the `st-starter-web` project template:
 
 {% embed url="https://codesandbox.io/s/github/springtype-org/st-starter-web?autoresize=1&fontsize=12&hidenavigation=1" caption="\"Hello, world!\" in SpringType" %}
 
@@ -21,7 +19,11 @@ We've created a neat CodeSandbox example based on the starter-scratch project te
 Please note that you need to login to [codesandbox.io](https://codesandbox.io) to edit the example code.
 {% endhint %}
 
-### Dive-in locally
+### The numbers
+
+As you can see, we've just built a website using modern core web technologies like Web Components and VDOM in **&lt; 10 KiB**. It renders in less than **&lt; 0.1ms** and \(re\)builds in **&lt; 1ms.**
+
+### Checkout locally
 
 To try SpringType right now on your machine, open a terminal and run:
 
