@@ -1,8 +1,8 @@
 ---
-description: A few words on why we've created another framework.
+description: A few words on why we've created another framework. Please become a Patreon.
 ---
 
-# Motivation
+# Motivation & Funding
 
 T.B.A.
 
