@@ -6,7 +6,9 @@ description: "A quick introduction to SpringType. Let's say: \"Hello, world!\" \
 
 ## What is SpringType? ****[🚀](https://emojipedia.org/rocket/)
 
-SpringType is a web framework for Website, PWA and App development. It promotes the use of TypeScript and modern browser APIs. Novel algorithms allow for **less complexity**, **fewer code**, **higher performance** and a improved **developer experience**.
+SpringType is a web framework for Website, PWA and App development. It promotes the use of TypeScript and modern browser APIs. Novel algorithms allow for **less complexity**, **fewer code**, **higher performance** and an improved **developer experience**.
+
+While designing SpringType, we've re-invented almost all wheels. It comes with a **lazy VDOM**, uses **native Web Components**, **Dependency Injection**, **Change Detection**, **Shared Contexts** and **TypeScript StyleSheets \(TSS\)** to fix all the headaches in modern web development.
 
 ### Peek a boo [🤓](https://emojipedia.org/nerd-face/)
 
