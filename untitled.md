@@ -33,7 +33,7 @@ To complete the feature-set and allow developers to use the same APIs full-stack
 
 * T.B.A
 
-### Bundle [📦](https://emojipedia.org/package/)
+### Bundler/Compiler [📦](https://emojipedia.org/package/)
 
-Finally, to transpile and bundle all assets of a frontend or backend application, the bundle-package uses FuseBox to create high performance production builds and have a blazing fast developer experience with hot module replacement and in-memory code caching.
+Finally, to transpile and bundle all assets of a frontend / backend application, we use the SpringType Bundler/Compiler to create high performance production builds and have a blazing fast developer experience with hot module replacement and in-memory code caching.
 
