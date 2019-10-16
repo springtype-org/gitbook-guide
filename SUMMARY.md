@@ -2,7 +2,7 @@
 
 * [Getting Started](README.md)
 * [How to create a new project](create-a-new-project.md)
-* [Bits and Pieces](untitled.md)
+* [Bits & Pieces](untitled.md)
 * [Global API](global-api.md)
 * [Bundle](bundle-1.md)
 * [DevTools](devtools.md)

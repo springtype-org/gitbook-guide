@@ -2,7 +2,7 @@
 description: A few words on the structure of the framework.
 ---
 
-# Bits and Pieces
+# Bits & Pieces
 
 ### [️](https://emojipedia.org/gear/)Core [⚙](https://emojipedia.org/gear/)
 
