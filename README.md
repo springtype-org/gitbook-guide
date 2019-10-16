@@ -32,20 +32,20 @@ As you can see, we've just built a website using modern core web technologies li
 To try SpringType right now on your machine, open a terminal and run:
 
 ```text
-$ git checkout https://github.com/springtype-org/st-starter-web .
+git checkout https://github.com/springtype-org/st-starter-web .
 ```
 
 Switch to the project directory and install the few dependencies:
 
 ```text
-$ cd st-starter-web
-$ yarn
+cd st-starter-web
+yarn
 ```
 
 Finally, start the dev server by running:
 
 ```text
-$ yarn start
+yarn start
 ```
 
 And that's it. SpringType will start on `http://localhost:4444` 
