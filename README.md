@@ -12,17 +12,6 @@ While designing SpringType, we've re-invented almost all wheels. SpringType uses
 
 **The novel Bundler/Compiler** `stbc` transpiles TypeScript and JavaScript blazingly fast into optimized production builds and seamlessly reloads codes changes in development mode.
 
-### Peek a boo [🤓](https://emojipedia.org/nerd-face/)
-
-We've created a neat CodeSandbox example based on the `st-starter-web` project template:
-
-{% embed url="https://codesandbox.io/s/github/springtype-org/st-starter-web?autoresize=1&fontsize=12&hidenavigation=1" caption="\"Hello, world!\" in SpringType" %}
-
-{% hint style="warning" %}
-**Cannot edit in read-only editor?**  
-Please note that you need to login to [codesandbox.io](https://codesandbox.io) to edit the example code.
-{% endhint %}
-
 ### The numbers [📊](https://emojipedia.org/bar-chart/)
 
 As you can see, we've just built a website using modern core web technologies like Web Components and VDOM in **&lt; 10 KiB**. It renders in less than **&lt; 0.1ms** and \(re\)builds in **&lt; 1ms.**
