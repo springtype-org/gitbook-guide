@@ -8,7 +8,7 @@ description: "A quick introduction to SpringType. Let's say: \"Hello, world!\" \
 
 SpringType is a full-stack web framework for Website, PWA and App development. It promotes the use of TypeScript and modern browser and Node.js APIs. Novel algorithms allow for **less complexity**, **fewer code**, **higher performance** and a stellar **developer experience**.
 
-While designing SpringType, we've re-invented almost every wheel. SpringType uses **Virtual  Components** that render a **clean DOM**,  emit **Custom Events** and allow for **Custom Attributes**.
+While designing SpringType, we've re-invented almost every wheel. **SpringType is Typed**, so you get **auto-completable API**'s and **compile-time type safety without any runtime overhead**. It uses **Virtual  Components** that are rendered as a **clean DOM**, emit **Custom DOM Events** and allow for **Custom DOM Attributes**. It is all DOM standards based, so there is **no magic abstraction**.
 
 Our **Virtual DOM** is HTML and SVG-compatible \(no nasty attribute names\), allows for **non-VDOM subtrees** \(your old JS code is compatible\) and implements `<slot>` , `<fragment>` && `<template>` **without the need for web components**. 
 
