@@ -18,6 +18,10 @@ The frameworks core package wraps up implementations for basic architectural nee
 
 These API's are available in all execution contexts, say Server \(Node.js\) and Web \(browsers\).
 
+{% hint style="info" %}
+**Are you missing something?** Propose an API here: [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
 ### Web [🌐](https://emojipedia.org/globe-with-meridians/)
 
 This package contains all implementations necessary for modern web development:
