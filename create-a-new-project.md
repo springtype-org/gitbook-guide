@@ -2,7 +2,7 @@
 description: How to use the CLI to generate new SpringType projects
 ---
 
-# Your SpringType project
+# Your first project
 
 If you're as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
 
