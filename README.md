@@ -16,7 +16,7 @@ Oh, and it **re-hydrates the existing DOM**, so you can also use all your compon
 
 But can it handle **Style Encapsulation**? Yes, using auto-prefixing CSS selectors and strong conventions. And it supports **PostCSS out-of-the-box** at compile time, so there is **no runtime overhead as well.**
 
-Nice, but can we have support for **DI**, **Change Detection \(by reference and deep\)** and **Shared Memory** too? Sure, it is reactive as well. And on top of that you get an **i18n API,** a **DOM Router**, **scoped** **globalThis** and a great **Logging API** for free.
+Nice, but can we have support for **DI**, **Change Detection \(by reference and deep\)** and a **Context API** too? Sure, it is reactive as well. And on top of that you get an **i18n API,** a **DOM Router**, **scoped** **globalThis** and a great **Logging API** for free.
 
 My oh my, this sounds like another fatty JS framework? Not at all! **Typical app builds are &lt; 10 KiB gzipped** and **render in &lt; 0.1ms** \(even with the worst Google Lighthouse settings\)**.**
 
