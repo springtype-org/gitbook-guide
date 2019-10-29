@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Getting Started](README.md)
-* [How to create a new project](create-a-new-project.md)
+* [Your SpringType project](create-a-new-project.md)
 * [Bits & Pieces](untitled.md)
 * [Global API](global-api.md)
 * [Bundle](bundle-1.md)
