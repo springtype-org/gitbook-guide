@@ -42,7 +42,7 @@ Did we mention that SpringType comes with cool third-party framework integration
 * [x] Babylon 3D for Games
 * [x] OpenLayers for interactive Map Applications
 
-This gives you a **jump-start that never has been seen before**. Have fun! 
+This gives you a **jump-start that has never been seen before**. Have fun! 
 
 ### Checkout a simple demo manually [💻](https://emojipedia.org/personal-computer/)
 
