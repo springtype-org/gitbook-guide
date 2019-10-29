@@ -26,6 +26,10 @@ Did we mention that SpringType comes with cool third-party framework integration
 
 This gives you a **jump-start that has never been seen before**. Have fun! 
 
+{% hint style="success" %}
+**Any questions?** Get in touch with us on [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
 ### Checkout a simple demo manually [💻](https://emojipedia.org/personal-computer/)
 
 If you'd like to try SpringType without `st-create`, just open a terminal and run:
