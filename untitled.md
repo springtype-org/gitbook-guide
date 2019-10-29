@@ -1,5 +1,5 @@
 ---
-description: A few words on the structure of the framework.
+description: 'SpringType is powerful, but it''s API is compact.'
 ---
 
 # Bits & Pieces
