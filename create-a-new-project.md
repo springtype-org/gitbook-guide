@@ -61,3 +61,7 @@ Find your production build in: `./dist/index.html`
 **That was easy, wasn't it?!** Let's make some changes to `src/index.tsx` and watch how HMR will auto-magically reload [👌](https://emojipedia.org/ok-hand-sign/).
 {% endhint %}
 
+{% hint style="success" %}
+**Any questions?** Get in touch with us on [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
