@@ -23,6 +23,6 @@ My oh my, this sounds like another fatty JS framework? Not at all! **Typical app
 **Uh, and**  `st-start` transpiles TypeScript and JavaScript into **optimized production builds** with **true zero configuration**. It comes with a clever dynamic webpack configuration and seamlessly reloads codes changes in development mode \(**HMR**\).
 
 {% hint style="success" %}
- **Any questions?** Get in touch with us on [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+ **Does it support `$feature`?** Ask us here: [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
 {% endhint %}
 
