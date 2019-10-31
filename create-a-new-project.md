@@ -6,9 +6,16 @@ description: How to use the CLI to generate new SpringType projects
 
 If you're as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
 
-`$ npx st-create`
+`$ st-run st-create`
 
- _You'll probably notice that there is not much to learn, **it's very intuitive**  :-\)_
+{% hint style="success" %}
+**You don't know** [**`st-run`**](https://github.com/springtype-org/st-run) **yet?** It's a chainable, faster, always up-to-date `npx` alternative and also a system command executor 🚀. Make sure to install it:   
+`yarn global add st-run`
+{% endhint %}
+
+ 
+
+_You'll probably notice that there is not much to learn, **it's very intuitive**  :-\)_
 
 * [x] Your next awesome app starts here.
   * [x] It supports many **project templates** \(PWA, website, game, etc.\) 
