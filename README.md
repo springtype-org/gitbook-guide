@@ -12,6 +12,8 @@ SpringType is a full-stack web framework for Website, PWA and App development. I
 Please note that SpringType is currently in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in Spring 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, bugs may happen more often, API's may change at will and CLIs may break on platforms at times as we're still working to increase test coverage and automated CI pipelines.
 
 [Please help us becoming better and report use-cases, suggestions and bugs.](https://github.com/springtype-org/springtype/issues)
+
+Get in touch with us on  [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
 {% endhint %}
 
 ### Current Status & Roadmap 
