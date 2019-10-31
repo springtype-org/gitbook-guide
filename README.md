@@ -18,6 +18,7 @@ Also, some features already promoted here, are not yet fully implemented:
 * [ ] Reactive Programming / Streaming \(RxJS alternative impl.\)
 * [ ] Redux-compatible immutable state machine \(Redux alternative impl.\)
 * [ ] High-performance Bundler/Compiler \(Webpack & Babel alternative\)
+* [ ] Browser Developer Extensions for Google Chrome & Mozilla Firefox
 {% endhint %}
 
 While designing SpringType, we've re-invented almost every wheel. **SpringType is Typed**, so you get **auto-completable API**'s and **compile-time type safety without any runtime overhead**. It uses **Virtual  Components** that are rendered as a **clean DOM**, emit **Custom DOM Events** and allow for **Custom DOM Attributes**. It is all DOM standards based, so there is **no magic abstraction**.
