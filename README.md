@@ -8,6 +8,10 @@ description: "A quick introduction to SpringType. Let's say: \"Hello, world!\" \
 
 SpringType is a full-stack web framework for Website, PWA and App development. It promotes the use of TypeScript and modern browser and Node.js APIs. Novel algorithms allow for **less complexity**, **fewer code**, **higher performance** and a stellar **developer experience**.
 
+{% hint style="warning" %}
+Please note that SpringType is currently in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in SpringType 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, bugs may happen more often, API's may change at will and CLI's may break on platforms at times as we're still working to increase test coverage and automated CI pipelines.
+{% endhint %}
+
 While designing SpringType, we've re-invented almost every wheel. **SpringType is Typed**, so you get **auto-completable API**'s and **compile-time type safety without any runtime overhead**. It uses **Virtual  Components** that are rendered as a **clean DOM**, emit **Custom DOM Events** and allow for **Custom DOM Attributes**. It is all DOM standards based, so there is **no magic abstraction**.
 
 Our **Virtual DOM** is HTML and SVG-compatible \(no nasty attribute names\), allows for **non-VDOM subtrees** \(your old JS code is compatible\) and implements `<slot>` , `<fragment>` && `<template>` **without the need for web components**. 
