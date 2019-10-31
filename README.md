@@ -10,6 +10,14 @@ SpringType is a full-stack web framework for Website, PWA and App development. I
 
 {% hint style="warning" %}
 Please note that SpringType is currently in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in Spring 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, bugs may happen more often, API's may change at will and CLIs may break on platforms at times as we're still working to increase test coverage and automated CI pipelines.
+
+Also, some features already promoted here, are not yet fully implemented:
+
+* [ ] SpringType Server \(Node.js, high-performance micro services\) 
+* [ ] Full SSR support \(based on SpringType Server\) and VDOM re-hydration
+* [ ] Reactive Programming / Streaming \(RxJS alternative impl.\)
+* [ ] Redux-compatible immutable state machine \(Redux alternative impl.\)
+* [ ] High-performance Bundler/Compiler \(Webpack & Babel alternative\)
 {% endhint %}
 
 While designing SpringType, we've re-invented almost every wheel. **SpringType is Typed**, so you get **auto-completable API**'s and **compile-time type safety without any runtime overhead**. It uses **Virtual  Components** that are rendered as a **clean DOM**, emit **Custom DOM Events** and allow for **Custom DOM Attributes**. It is all DOM standards based, so there is **no magic abstraction**.
