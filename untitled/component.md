@@ -32,8 +32,6 @@ export class Tag extends st.component {
 {% endtab %}
 {% endtabs %}
 
-
-
 The **name** of a component class is the **default tagname**. It can be changed by adding and _tag_ property to the component decorator `@component({tag: 'test'})`.  The tagname of every component can be overridden by the special attribute tag.
 
 {% hint style="warning" %}
