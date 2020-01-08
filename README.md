@@ -25,8 +25,8 @@ Also, some features already promoted here, are not yet fully implemented:
 * [ ] Browser Developer Extensions for Google Chrome & Mozilla Firefox
 * [ ] SpringType Server \(Node.js, high-performance micro services\) 
 * [ ] Full SSR support \(based on SpringType Server\) and VDOM re-hydration
-* [x] Reactive Programming / Streaming \(RxJS alternative impl.\)
-* [x] Redux state management
+* [ ] Reactive Programming / Streaming \(RxJS alternative impl.\)
+* [ ] Redux-compatible immutable state machine \(Redux alternative impl.\)
 * [ ] High-performance Bundler/Compiler \(Webpack & Babel alternative\)
 {% endhint %}
 
