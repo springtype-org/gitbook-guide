@@ -25,7 +25,7 @@ _You'll probably notice that there is not much to learn, **it's very intuitive**
   * [x] With templates for **standard UI's like: Login form** etc.
   * [x] In all flavors, like **Ionic**, **Google** **Material Design** and even **Bootstrap**
 
-Did we mention that SpringType comes with cool third-party framework integrations?
+Did we mention that _SpringType_ comes with cool third-party framework integrations?
 
 * [x] Ionic 4 \(official\) for PWA's
 * [x] Google Material Design \(official\) for Websites
@@ -40,10 +40,10 @@ This gives you a **jump-start that has never been seen before**. Have fun!
 
 ### Checkout a simple demo manually [💻](https://emojipedia.org/personal-computer/)
 
-If you'd like to try SpringType without `st-create`, just open a terminal and run:
+If you'd like to try _SpringType_ without `st-create`, just open a terminal and run:
 
 ```text
-git checkout https://github.com/springtype-org/st-starter-web .
+git clone https://github.com/springtype-org/st-starter-web.git
 ```
 
 Switch to the project directory and install the few dependencies:
@@ -59,7 +59,11 @@ Finally, start the dev server for HMR by running:
 yarn start
 ```
 
-And that's it. SpringType will start on: `http://localhost:4444` 
+![st-start is waiting for changes](.gitbook/assets/compiled.PNG)
+
+![](.gitbook/assets/type-check.PNG)
+
+And that's it. _SpringType_ will start on: `http://localhost:4444` 
 
 Or start a production build by running:
 

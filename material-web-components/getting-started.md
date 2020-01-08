@@ -4,11 +4,7 @@ The springtype components implementation of the famouse [Material Design](https:
 
 `yarn add st-material` or `npm st-material`
 
-## Components Overview
-
-**Button**
-
-[Demo](https://st-material.springtype.org)
+## **Button**
 
 {% tabs %}
 {% tab title="Usage TSX" %}
@@ -19,14 +15,8 @@ The springtype components implementation of the famouse [Material Design](https:
 
 {% tab title="Import" %}
 ```typescript
-import MwcButton from '@st-material'
+import { MwcButton } from 'st-material'
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-T.B.A.
 
