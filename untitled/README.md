@@ -26,8 +26,8 @@ These API's are available in all execution contexts, say Server \(Node.js\) and 
 
 This package contains all implementations necessary for modern web development:
 
-* [Web Components / Custom Elements](https://github.com/springtype-org/springtype/tree/master-v2/src/web/customelement) `customelement`
-* [VDOM](https://github.com/springtype-org/springtype/tree/master-v2/src/web/vdom) `vdom`
+* [Component \(Custom Element\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/component) `component`
+* [Virtual Document \(VDOM\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/vdom)  `vdom`
 * [Client-side DOM Router](https://github.com/springtype-org/springtype/tree/master-v2/src/web/router) `router`
 
 ### Server [🎛](https://emojipedia.org/control-knobs/)
