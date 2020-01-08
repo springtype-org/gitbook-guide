@@ -1,13 +1,13 @@
 # Component
 
-A component in _SpringType_ represent an HtmlElement tag, that use TypeScript [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html).
+A component in _SpringType_ represent an HtmlElement tag, that use TypeScript [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html). An HtmlElement include a namespace, tagname, attributes and _optional_ nested child elements. 
 
-Simple Example component:
+_SpringType_ components are **classes** that _**extend**_ from `st.component` and are decorated with`@component`.
 
 {% tabs %}
-{% tab title="html" %}
+{% tab title="TSX in other component" %}
 ```markup
-<tag attribute="attributeValue">children</tag>
+<Tag attribute="attributeValue">children</tag>
 ```
 {% endtab %}
 
@@ -17,12 +17,12 @@ import { st} from "springtype/core";
 import { component } from "springtype/web/component";
 import { tsx } from "springtype/web/vdom";
 
-@component({tag: 'tag'})
-export class HomePage extends st.component {
+@component()
+export class Tag extends st.component {
 
 
     @attr
-    attribute: string = 'attribute'
+    attribute: string = 'attributeValue'
     
     render() {
         return this.renderChildren();          
@@ -32,6 +32,30 @@ export class HomePage extends st.component {
 ```
 {% endtab %}
 {% endtabs %}
+
+
+
+ The **name** of a component class is the **default tagname**. It can be changed by adding and tag property to the component decorator `@component({tag: 'test'})`.  The tagname of every component can be overridden by the special attribute tag.
+
+{% hint style="warning" %}
+**CSS / SASS / SCSS selectors** have to be **always lowercase**, because the DOM API doesn't support uppercase letters.
+{% endhint %}
+
+{% tabs %}
+{% tab title="TSX" %}
+```markup
+<Tag tag="TEsT" attribute="attributeValue">children</tag>
+```
+{% endtab %}
+
+{% tab title="Browser \(Rendered\)" %}
+```markup
+<test attribute="attributeValue">children</test>
+```
+{% endtab %}
+{% endtabs %}
+
+
 
 ## Lifecycle
 
@@ -43,7 +67,7 @@ export class HomePage extends st.component {
 
 ## Context
 
-## TSX
+## TypeScriptXML TSX / JavaScriptXML JSX
 
 
 
