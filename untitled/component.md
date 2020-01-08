@@ -34,7 +34,7 @@ export class Tag extends st.component {
 
 
 
- The **name** of a component class is the **default tagname**. It can be changed by adding and tag property to the component decorator `@component({tag: 'test'})`.  The tagname of every component can be overridden by the special attribute tag.
+The **name** of a component class is the **default tagname**. It can be changed by adding and _tag_ property to the component decorator `@component({tag: 'test'})`.  The tagname of every component can be overridden by the special attribute tag.
 
 {% hint style="warning" %}
 **CSS / SASS / SCSS selectors** have to be **always lowercase**, because the DOM API doesn't support uppercase letters.
