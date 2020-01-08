@@ -13,7 +13,7 @@ _SpringType_ components are **classes** that _**extend**_ from `st.component` an
 
 {% tab title="component" %}
 ```typescript
-import { st} from "springtype/core";
+import { st } from "springtype/core";
 import { component } from "springtype/web/component";
 import { tsx } from "springtype/web/vdom";
 
