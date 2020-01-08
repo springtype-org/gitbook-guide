@@ -20,7 +20,6 @@ import { tsx } from "springtype/web/vdom";
 @component()
 export class Tag extends st.component {
 
-
     @attr
     attribute: string = 'attributeValue'
     
