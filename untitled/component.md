@@ -15,10 +15,11 @@ _SpringType_ components are **classes** that _**extend**_ from `st.component` an
 ```typescript
 import { st } from "springtype/core";
 import { component } from "springtype/web/component";
+import { ILifecycle } from "springtype/web/component/interface";
 import { tsx } from "springtype/web/vdom";
 
 @component()
-export class Tag extends st.component {
+export class Tag extends st.component implements ILifecycle {
 
     @attr
     attribute: string = 'attributeValue'
