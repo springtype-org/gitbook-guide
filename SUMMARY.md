@@ -3,7 +3,7 @@
 * [Getting Started](README.md)
 * [Your first project](create-a-new-project.md)
 * [Your first Component](your-first-component.md)
-* [Bits & Pieces](untitled.md)
+* [Bits & Pieces](untitled/README.md)
   * [Component](untitled/component.md)
   * [Service](untitled/service.md)
   * [Router](untitled/router.md)
