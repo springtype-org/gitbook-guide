@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Getting Started](README.md)
+* [Welcome to SpringType!](README.md)
 * [Your first project](create-a-new-project.md)
 * [Your first Component](your-first-component.md)
 * [Bits & Pieces](untitled/README.md)
