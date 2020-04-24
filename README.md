@@ -1,30 +1,32 @@
 ---
-description: "This is a quick introduction. We're just saying: \"Hello, world!\" here \U0001F603"
+description: "This is a quick introduction to SpringType: \"Hello, world!\" \U0001F603"
 ---
 
 # Welcome to SpringType!
 
-SpringType is a full-stack web framework for Website and PWA development. It promotes the use of TypeScript and modern browser APIs. SpringType's unique approach allows for **less complexity**, **fewer code**, **higher performance** and a stellar **developer experience**.
+SpringType is a full-stack web framework for Website and PWA development. It promotes the use of TypeScript and modern browser APIs. SpringType's unique approach allows for **less complexity**, **fewer code**, **better performance** and a stellar **developer experience** [🚀](https://emojipedia.org/rocket/).
 
 ### Mile Zero
 
-We recommend to take like 30 minutes to run through our guide. The following guide is available to try-out hands-on with a single CLI command:
+We recommend, to take like 30 minutes to run through our guide. You can follow the guide with hands-on experience by running a single CLI command:
 
 ```bash
 > npx st-create -p guide
 ```
 
 {% hint style="warning" %}
-SpringType just requires [N](https://nodejs.org)[ode.js](https://nodejs.org) to be installed first. We're proud to say that SpringType has 0 dependencies \(but quite a lot `devDependencies`\). 
+SpringType just requires [N](https://nodejs.org)[ode.js](https://nodejs.org) to be installed first. We're proud to say that SpringType has 0 dependencies \(but quite a lot `devDependencies`because we're using Webpack, Babel & many plugins to optimize developer experience\). 
 {% endhint %}
 
 ### SpringType in 30 minutes 
 
-Designing SpringType was quite a journey. It took us more than a year to constantly re-invent the API's until we've came to a version where the API was small, concise, simple and efficient. Simply: A beautiful new take on modern web development that brings back the fun and simplicity of old days - while retaining modern software development standards.
+Designing SpringType was quite a journey. It took us more than a year to constantly re-invent the API's until we've came to the current version where the API is small, concise, simple and efficient. Simply put:
+
+> A beautiful new take on modern web development that brings back the fun and simplicity of the old days - while retaining modern web development standards.
 
 {% tabs %}
 {% tab title="TypeScript" %}
-**SpringType is typed**, so you get **auto-completable API's** and **compile-time type safety without any runtime overhead:**
+SpringType is a typed superset of JavaScript. You'll get auto-completable API's and compile-time type safety without any runtime overhead:
 
 ```typescript
 interface IGreeting {
@@ -40,11 +42,20 @@ enum EGreetingMode {
 const sendGreeting = async(greeting: IGreeting) => { ... }
 ```
 
-Having TypeScript allows us to use TSX dialect as well. TSX is typed JSX. It allows us to define a XML-syntax like virtual DOM structure which is being transformed into a JSON structure by the TypeScript compiler. 
+{% hint style="info" %}
+**Use a popular IDE**
 
-SpringType therefore takes this JSON structure, optimizes it and renders out valid native DOM elements at high speed. But there is no complex VDOM algorithm and no magic DOM abstraction to wrap your head around:
+We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/) or [IntelliJ WebStorm](https://www.jetbrains.com/webstorm/) to name two popular ones.
+{% endhint %}
+
+TypeScript allows us to use the TSX domain-specific language. TSX is typed JSX and JSX is an XML-syntax to describe a virtual DOM \(HTML\) structure which is being transformed into JSON by the TypeScript compiler. 
+
+SpringType therefore takes this JSON structure, optimizes it and renders out a valid native HTML document at high speed. But there is no complex VDOM algorithm and no magic DOM abstraction in SpringType to wrap your head around:
 
 ```typescript
+import { st } from "springtype";
+import { tsx } from "springtype/web";
+
 st.render(<p>SpringType: Simplicity is key! :-)</p>, document.body);
 ```
 {% endtab %}
