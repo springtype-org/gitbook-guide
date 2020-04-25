@@ -1028,7 +1028,7 @@ export class LoginGuard extends st.service {
 }
 ```
 
-**Code Split**
+**Code Splitting**
 
 If your project becomes even more sophisticated, you might like to offload bandwidth and keep code from being loading as long as pages are not yet visited by the user. To do so, you can use TypeScripts dynamic import syntax. The bundler with automatically split code at this point:
 
