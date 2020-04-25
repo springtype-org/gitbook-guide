@@ -2,22 +2,24 @@
 description: How to use the CLI to generate new SpringType projects
 ---
 
-# Starting a Project
+# Your first project
 
-If you're just as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
+If you're as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
 
 `$ st-run st-create`
 
+_You'll probably notice that there is not much to learn, **it's very intuitive**  :-\)_
+
 {% hint style="success" %}
-**You don't know** [**`st-run`**](https://github.com/springtype-org/st-run) **yet?** It's a chainable, faster, always up-to-date npx alternative and сross-platform system command executor 🚀.   
-Make sure to install: `yarn global add st-run`
+**You don't know** [**`st-run`**](https://github.com/springtype-org/st-run) **yet?** It's a chainable, faster, always up-to-date npx alternative and also a system command executor 🚀. Make sure to install it:   
+`yarn global add st-run`
 {% endhint %}
 
-![Your next web development project starts here :-\)](.gitbook/assets/bildschirmfoto-2019-10-31-um-09.09.50.png)
+![Your next awesome web development project starts here :-\)](.gitbook/assets/bildschirmfoto-2019-10-31-um-09.09.50.png)
 
-[**`st-create`**](https://github.com/springtype-org/st-create) is a versatile, template based code generator:
+[**`st-create`**](https://github.com/springtype-org/st-create) is a versatile, templating based code generator:
 
-* [x] It supports **project templates** \(PWA, website, game, etc.\) 
+* [x] It supports many **project templates** \(PWA, website, game, etc.\) 
 * [x] It also supports your **own custom templates**
 * [x] You can also **generate new components** for your app
   * [x] With templates for **standard UI's like: Login form** etc.
@@ -25,9 +27,8 @@ Make sure to install: `yarn global add st-run`
 
 Did we mention that _SpringType_ comes with cool third-party framework integrations?
 
-* [x] SpringType guide for playing around
 * [x] Ionic 4 \(official\) for PWA's
-* [x] Materialize.css for Websites and PWA's
+* [x] Google Material Design \(official\) for Websites
 * [x] Babylon 3D for Games
 * [x] OpenLayers for interactive Map Applications
 

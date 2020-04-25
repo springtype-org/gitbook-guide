@@ -11,7 +11,7 @@ SpringType is a full-stack web framework for Website and PWA development. It pro
 We recommend, to take like 30 minutes to run through our guide. You can follow the guide with hands-on experience by running just one single CLI command:
 
 ```bash
-> npx st-create -p guide
+> npx st-create -c project -t guide -n SpringTypeSandBox
 ```
 
 {% hint style="warning" %}
