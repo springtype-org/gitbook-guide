@@ -12,9 +12,9 @@ A CLI for scaffolding new SpringType projects.
 
 A CLI tool for bundling and compiling app code for web and Node.js.
 
-### st-ssr
+### st-run
 
-A CLI tool to run static page rendering and use \(re-\)hydration for the fastest content delivery.
+Command line executor.
 
 ### st-rm-rf
 
