@@ -10,7 +10,7 @@ The frameworks core package wraps up implementations for basic architectural nee
 
 * [Globals](https://github.com/springtype-org/springtype/tree/master-v2/src/core/st) `st` Implements the `st` and `$st` global framework API.
 * [Language Support](https://github.com/springtype-org/springtype/tree/master-v2/src/core/lang) `lang` Helpful shortcut functions like `isPrimitive()`.
-* [Logging](https://github.com/springtype-org/springtype/tree/master-v2/src/core/log) `log` Log variables using `st.info(...)`, `st.warn(...)` and `st.error()`.
+* [Logging](https://github.com/springtype-org/springtype/tree/master-v2/src/core/log) `log` Log using `st.info(...)`, `st.warn(...)` and `st.error(...)`.
 * [Change Detection](https://github.com/springtype-org/springtype/tree/master-v2/src/core/cd) `cd` Proxy based object change detector, exposed as `st.onChange(...)`. 
 * [Dependency Injection](https://github.com/springtype-org/springtype/tree/master-v2/src/core/di) `di` Class-property based DI, exposes: `@inject(...)` and `@injectable(...)`. 
 * [Global Context Management](https://github.com/springtype-org/springtype/tree/master-v2/src/core/context) `context` Change Detection based global contexts, exposes `@context(...)`, `initContext(...)` and `getContext(...)`. 
@@ -26,11 +26,11 @@ These API's are available in all execution contexts, say Server \(Node.js\) and 
 
 This package contains all implementations necessary for modern web development:
 
-* [Component \(Custom Element\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/component) `component`
-* [Virtual Document \(VDOM\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/vdom)  `vdom`
-* [Client-side DOM Router](https://github.com/springtype-org/springtype/tree/master-v2/src/web/router) `router`
+* [Component](https://github.com/springtype-org/springtype/tree/master-v2/src/web/component) `component`
+* [Virtual DOM renderer](https://github.com/springtype-org/springtype/tree/master-v2/src/web/vdom)   `vdom`
+* [Client-side, DOM Router](https://github.com/springtype-org/springtype/tree/master-v2/src/web/router) `router`
 
 ### Bundler [📦](https://emojipedia.org/package/)
 
-Finally, to transpile and bundle all assets of a frontend / Node.js app, we use the SpringType `st-start` CLI to create high performance production builds and have a blazing fast developer experience with hot module replacement and in-memory code caching.
+Finally, to transpile and bundle everything that belongs to a SpringType project, `st-start` was written. It comes with a customizable API, a CLI, live reload DevServer and creates high performance production builds.
 
