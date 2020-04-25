@@ -2,13 +2,11 @@
 description: How to use the CLI to generate new SpringType projects
 ---
 
-# Your first project
+# Starting a Project
 
-If you're as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
+If you're just as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
 
 `$ st-run st-create`
-
-_You'll probably notice that there is not much to learn, **it's very intuitive**  :-\)_
 
 {% hint style="success" %}
 **You don't know** [**`st-run`**](https://github.com/springtype-org/st-run) **yet?** It's a chainable, faster, always up-to-date npx alternative and сross-platform system command executor 🚀.   
@@ -17,7 +15,7 @@ Make sure to install: `yarn global add st-run`
 
 ![Your next web development project starts here :-\)](.gitbook/assets/bildschirmfoto-2019-10-31-um-09.09.50.png)
 
-[**`st-create`**](https://github.com/springtype-org/st-create) is a versatile, templating based code generator:
+[**`st-create`**](https://github.com/springtype-org/st-create) is a versatile, template based code generator:
 
 * [x] It supports **project templates** \(PWA, website, game, etc.\) 
 * [x] It also supports your **own custom templates**
@@ -27,6 +25,7 @@ Make sure to install: `yarn global add st-run`
 
 Did we mention that _SpringType_ comes with cool third-party framework integrations?
 
+* [x] SpringType guide for playing around
 * [x] Ionic 4 \(official\) for PWA's
 * [x] Materialize.css for Websites and PWA's
 * [x] Babylon 3D for Games
