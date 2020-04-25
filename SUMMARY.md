@@ -2,12 +2,9 @@
 
 * [Welcome to SpringType!](README.md)
 * [Starting a Project](create-a-new-project.md)
-* [In Depth](untitled/README.md)
-  * [Component](untitled/component.md)
-  * [Service](untitled/service.md)
-  * [Router](untitled/router.md)
-* [Global API](global-api.md)
-* [Bundle](bundle-1.md)
-* [CLI tools](funding.md)
+* [In Depth](untitled.md)
+* [Bundler](bundle-1.md)
+* [More tools](funding.md)
 * [Motivation & Funding](motivation.md)
+* [Who uses SpringType?](who-uses-springtype.md)
 

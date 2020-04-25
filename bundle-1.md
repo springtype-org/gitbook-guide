@@ -2,7 +2,7 @@
 description: A comprehensive guide on how to customize bundling.
 ---
 
-# Bundle
+# Bundler
 
 T.B.A.
 
