@@ -853,8 +853,6 @@ TODO
 {% endtab %}
 {% endtabs %}
 
-
-
 ### Why we've built SpringType
 
 We've seen many frameworks rise and fall. The only thing that seems to be constant, is change. While projects like React, Angular and Vue became large code bases, non-framework approaches like Svelte and Stencil are promoting methods of inlining functionality to get around the need to deploy a framework.
