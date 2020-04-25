@@ -1,8 +1,8 @@
 ---
-description: 'SpringType is powerful, but it''s API is compact.'
+description: SpringType's powerful but concise API.
 ---
 
-# Bits & Pieces
+# In Depth
 
 ### [️](https://emojipedia.org/gear/)Core [⚙](https://emojipedia.org/gear/)
 
@@ -29,12 +29,6 @@ This package contains all implementations necessary for modern web development:
 * [Component \(Custom Element\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/component) `component`
 * [Virtual Document \(VDOM\)](https://github.com/springtype-org/springtype/tree/master-v2/src/web/vdom)  `vdom`
 * [Client-side DOM Router](https://github.com/springtype-org/springtype/tree/master-v2/src/web/router) `router`
-
-### Server [🎛](https://emojipedia.org/control-knobs/)
-
-To complete the feature-set and allow developers to use the same APIs full-stack, SpringType comes with a powerful, server-implementation agnostic Node.js server middleware:
-
-* T.B.A
 
 ### Bundler [📦](https://emojipedia.org/package/)
 

@@ -11,7 +11,7 @@ SpringType is a full-stack web framework for Website and PWA development. It pro
 We recommend, to take like 30 minutes to run through our guide. You can follow the guide with hands-on experience by running just one single CLI command:
 
 ```bash
-> npx st-create -c project -t guide -n SpringTypeSandBox
+> npx st-create -p guide
 ```
 
 {% hint style="warning" %}
@@ -399,30 +399,7 @@ The UX designer asks you to integrate a jQuery plugin? Or to use some CSS framew
 {% tab title="Events" %}
 In SpringType, there are two event systems. The native DOM event system and the SpringType event bus. Depending on the use-case,  you decide, which event system to use.
 
-**Standard DOM events**
-
-Binding standard DOM events and dealing with them is super easy. Just take care to use fat arrow functions to make sure that `this` points to the component instance:
-
-```typescript
-@component
-export class MyButton extends st.component {
-    
-  onButtonClick = (evt: MouseEvent) => {
-    // evt is the native DOM event
-    evt.stopPropagation();
-        
-    st.info(evt.target);
-  } 
-    
-  render() {
-    return <button onClick={ this.onButtonClick }>Click</button>
-  }
-}
-
-st.render(<MyButton />, document.body);
-```
-
- **Custom native DOM events**
+**Custom native DOM events**
 
 With native DOM events, you can bubble events up a component tree. This type of event system is useful when you'd like to communicate with a parent component via DOM events:
 
@@ -852,6 +829,23 @@ TODO
 TODO
 {% endtab %}
 {% endtabs %}
+
+
+
+### Why we've built SpringType
+
+We've seen many frameworks rise and fall. The only thing that seems to be constant, is change. While projects like React, Angular and Vue became large code bases, non-framework approaches like Svelte and Stencil are promoting methods of inlining functionality to get around the need to deploy a framework.
+
+There are many, those frameworks have in common, but lets pick out some major vectors:
+
+1. **Complexity**: Expect a steep learning curve to be productive
+2. **Abstraction**: With VDOM's you can't safely work with real DOM API's at runtime 
+3. **Vendor lock-in**: Due to their non-standard API's, code isn't inter-operable
+4. **Size:** Even if we take Svelte or Stencil: Inlining leads to code duplication and we don't gain much in size with many components being deployed in larger projects.
+
+With SpringType, we're breaking these limitations, while providing a state-of-the-art API. SpringType is a micro-framework that allows component-driven development and safe, native DOM API access at the same time. The size of the transpiled and optimized framework is at records low and there is still potential as we're in beta phase right now.
+
+SpringType is an attempt to give you back the power: _You decide what happens and when_.
 
 {% hint style="warning" %}
 Please note that SpringType is still in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in Spring 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, bugs may happen more often, API's may change at will and CLIs may break on platforms at times.
