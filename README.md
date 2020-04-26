@@ -26,6 +26,8 @@ Designing SpringType was quite a journey. It took us more than a year to constan
 
 {% tabs %}
 {% tab title="TypeScript" %}
+**Optional Type Safety**
+
 SpringType is a typed superset of JavaScript. You'll get auto-completable API's and compile-time type safety without any runtime overhead:
 
 ```typescript
@@ -48,6 +50,8 @@ const sendGreeting = async(greeting: IGreeting) => { ... }
 We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/) or [IntelliJ WebStorm](https://www.jetbrains.com/webstorm/) to name two popular ones. This makes sure you'll have less struggle finding imports, get auto-completable API's and see issues ahead of build time.
 {% endhint %}
 
+**TSX**
+
 TypeScript allows us to use the TSX domain-specific language. TSX is typed JSX and JSX is an XML-syntax to describe a virtual DOM \(HTML-like\) structure which is being transformed into JSON by the TypeScript compiler. 
 
 SpringType therefore takes the transformed JSON structure, optimizes it and renders out a valid native HTML document at high speed. But unlike other frameworks, SpringType has no complex VDOM algorithm and no magic DOM abstraction that could stand between you and your code.
@@ -58,6 +62,27 @@ import { tsx } from "springtype/web";
 
 st.render(<p>SpringType: Simplicity is key! :-)</p>, document.body);
 ```
+
+**Static imports**
+
+\*\*\*\*
+
+**Dynamic imports and code splitting**
+
+Based on the dynamic import feature of TypeScript, static code dependencies can replaced with a method that loads code on demand:
+
+```typescript
+const loadModuleB = async() => {
+  return import('../module-b');
+}
+const moduleB = await loadModuleB();
+```
+
+Using this language feature, `st-start` can optimize production builds automatically for smaller, differentiated on-demand code delivery. The code is only loaded once the method has been called at runtime.
+
+{% hint style="info" %}
+SpringTypes DOM Router has built-in support for dynamic imports and code splitting.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Components" %}
@@ -844,7 +869,7 @@ We recommend to use a state store like Redux in cases of complex business requir
 {% endhint %}
 {% endtab %}
 
-{% tab title="Routing" %}
+{% tab title="Routes" %}
 Routing in SpringType allows you to do hash routing \(`#/your/page` URL's\) as well as non-hash routing. For the latter, you need to set-up your web server to redirect any URL path to deliver index.html in order to make it work without page refreshes.
 
 **Routes and route lists**
@@ -1064,9 +1089,17 @@ Once a path outside the current cache group is visited, the router component cac
 {% endtab %}
 
 {% tab title="i18n" %}
-TODO
+To make your developer life way easier, we've implemented an internationalization \(`st.i18n`\) API that builds on JSON files and a string interpolation implementation with  formatting functions \(`st.format`\).
+
+**Enabling i18n**
+
+Internationalization is a core feature of SpringType but it's not enabled by default. 
 {% endtab %}
 {% endtabs %}
+
+
+
+
 
 {% hint style="warning" %}
 Please note that SpringType is still in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in Spring 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, bugs may happen more often, API's may change at will and CLIs may break on platforms at times.
