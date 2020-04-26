@@ -4,7 +4,7 @@ description: How to use the CLI to generate new SpringType projects
 
 # Starting a Project
 
-If you're just as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** `st-create`creates for you:
+If you're just as lazy as we are, **don't even read any further guide, just generate SpringType apps** and **play with what** [**`st-create`**](https://github.com/springtype-org/st-create)creates for you:
 
 `$ st-run st-create`
 
@@ -13,21 +13,21 @@ If you're just as lazy as we are, **don't even read any further guide, just gene
 Make sure to install: `yarn global add st-run`
 {% endhint %}
 
-![Your next web development project starts here :-\)](.gitbook/assets/bildschirmfoto-2019-10-31-um-09.09.50.png)
+![Setting up SpringType projects in seconds](.gitbook/assets/st-create.png)
 
 [**`st-create`**](https://github.com/springtype-org/st-create) is a versatile, template based code generator:
 
 * [x] It supports **project templates** \(PWA, website, game, etc.\) 
 * [x] It also supports your **own custom templates**
-* [x] You can also **generate new components** for your app
+* [x] You can also **generate new `<Components />`**  and **`Services`** for your app
   * [x] With templates for **standard UI's like: Login form** etc.
-  * [x] In all flavors, like **Ionic**, **Google** **Material Design** and even **Bootstrap**
+  * [x] In all flavors, like **Ionic 4**, **Google** **Material Design** and even **Bootstrap 4**
 
 Did we mention that _SpringType_ comes with cool third-party framework integrations?
 
-* [x] SpringType guide for playing around
+* [x] SpringType guide for playing around _\(WIP\)_
 * [x] Ionic 4 \(official\) for PWA's
-* [x] Materialize.css for Websites and PWA's
+* [x] Materialize.css for Websites and PWA's _\(WIP\)_
 * [x] Babylon 3D for Games
 * [x] OpenLayers for interactive Map Applications
 

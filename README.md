@@ -65,7 +65,15 @@ st.render(<p>SpringType: Simplicity is key! :-)</p>, document.body);
 
 **Static imports**
 
-\*\*\*\*
+The best practice for using external `npm` modules is to import them with standard TypeScript import syntax:
+
+```typescript
+import { MatInput } from "st-materialize";
+
+st.render(<MatInput label="Hello, world!" />, document.body);
+```
+
+However, these imports are static and thus result in larger code sizes compared to dynamic imports which can be used to split code in smaller chunks.
 
 **Dynamic imports and code splitting**
 
@@ -75,7 +83,10 @@ Based on the dynamic import feature of TypeScript, static code dependencies can 
 const loadModuleB = async() => {
   return import('../module-b');
 }
-const moduleB = await loadModuleB();
+
+run(async() {
+  const moduleB = await loadModuleB();
+});
 ```
 
 Using this language feature, `st-start` can optimize production builds automatically for smaller, differentiated on-demand code delivery. The code is only loaded once the method has been called at runtime.
@@ -83,6 +94,94 @@ Using this language feature, `st-start` can optimize production builds automatic
 {% hint style="info" %}
 SpringTypes DOM Router has built-in support for dynamic imports and code splitting.
 {% endhint %}
+
+**Async/await and "fat arrow functions"**
+
+Typically asynchronous call flows have been quite cumbersome. In SpringType, you can easily mix synchronous and asynchronous code using async/await. This technique is often combines with the use of fat arrow functions:
+
+```typescript
+const loadUsers = async() => fetch('/users');
+
+run(async() => {
+
+  const users = await loadUsers();
+  st.render(users.map(user => <p>user.name</p>), document.body);
+});
+```
+
+This is especially helpful with classes where fat arrow functions make sure that the this-scope is pointing to the instance all the time:
+
+```typescript
+class Sample {
+  loadUsers = async() => fetch('/users');
+}
+
+run(async() => {
+  await new Sample().loadUsers();
+});
+```
+
+**Reactive functions**
+
+On top of the TypeScript standard library features, we've implemented functions to provide you with the tools to design software using reactive call flows.
+
+_Run_
+
+Runs a function synchronously or asynchronously and returns:
+
+```typescript
+run(async() => {
+  ...
+});
+```
+
+_Debouncing_
+
+Debouncing functions allows to make sure it is called only once in  `n` milliseconds, no matter how often it is called:
+
+```typescript
+const sendRequestDebounced = debounce(async(...params) => {
+    ...
+}, /*ms*/ 500);
+
+sendRequestDebounced(...);
+```
+
+_Delaying_
+
+Delaying functions allows to let all calls be delayed by `n` milliseconds:
+
+```typescript
+const sendRequestDelayed = delay(async(...) => {
+    ...
+}, /*ms*/ 500);
+
+sendRequestDelayed(...);
+```
+
+_Immediate_
+
+Immediate functions are called on next VM tick. This is helpful if JavaScript code must wait until synchronous DOM operations has finished:
+
+```typescript
+const sendRequestImmediate = immediate(async(...params) => {
+    ...
+});
+
+sendRequestImmediate(...);
+```
+
+_AnimationFrame_
+
+Animation frame functions are called after the browsers rendering has been refreshed. This allows to implement smooth animations that are calculated using JavaScript:
+
+```typescript
+const calcAnimation = animationFrame(async(...params) => {
+    ...
+});
+
+calcAnimation(...);
+```
 {% endtab %}
 
 {% tab title="Components" %}
@@ -454,28 +553,30 @@ With native DOM events, you can bubble events up a component tree. This type of 
 {% code title="item.tsx" %}
 ```typescript
 export interface IItemClickDetail {
-    selected: boolean;
-    item: Item;
+  selected: boolean;
+  item: Item;
 }
 
 @component
 export class Item extends st.component {
     
-    @event
-    onItemClick!: IEventListener<IItemClickDetail>;
+  @event
+  onItemClick!: IEventListener<IItemClickDetail>;
 
-    onItemClick = (detail: IItemClickDetail) => {
-        this.dispatchEvent<IItemClickDetail>("itemClick", {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-                ...detail,
-            },
-        });
-    };
+  onItemClick = (detail: IItemClickDetail) => {
+    // dispatching "itemClick" triggers registered
+    // onItemClick event listeners
+    this.dispatchEvent<IItemClickDetail>("itemClick", {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+      detail: {
+        ...detail,
+      },
+    });
+  };
     
-    ...
+  ...
 }
 ```
 {% endcode %}
@@ -1096,6 +1197,14 @@ To make your developer life way easier, we've implemented an internationalizatio
 Internationalization is a core feature of SpringType but it's not enabled by default. 
 {% endtab %}
 {% endtabs %}
+
+
+
+
+
+
+
+
 
 
 
