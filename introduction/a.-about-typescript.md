@@ -194,7 +194,7 @@ const result = run(async() => {
 
 **Debounce**
 
-Transforms a function into one that is only once in  `n` milliseconds, no matter how often it is called:
+Transforms a function into one that is called only once in  `n` milliseconds, no matter how often it is actually called:
 
 ```typescript
 const sendRequestDebounced = debounce(async(...params) => {
