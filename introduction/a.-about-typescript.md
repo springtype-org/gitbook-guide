@@ -84,7 +84,7 @@ SpringType has no complex VDOM algorithm and no magic DOM abstraction that would
 {% endtab %}
 
 {% tab title="3. Modules" %}
-We do often use external libraries to quickly implement features that otherwise would take hours to implement on our own. Therefore we call e.g. `yarn add st-materialize` to import and use the beautiful Material Design `<MatInput />` component from our [officially supported Materialize.css library]().
+We do often use external libraries to quickly implement features that otherwise would take hours to implement on our own. Therefore we call e.g. `yarn add st-materialize` to import and use the beautiful Material Design `<MatInput />` component from our [officially supported Materialize.css library](https://github.com/springtype-org/st-materialize).
 
 The best practice to import such `npm` modules is:
 
