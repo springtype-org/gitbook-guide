@@ -6,7 +6,7 @@ description: A collection of common errors that might happen during development.
 
 ## Error: listen EADDRINUSE: address already in use 127.0.0.1:4444
 
-There is another process of `st-start` running on your system. Because of that, the port `4444` is already in use. You can either stop the other process or create a file `st.config.ts` with the following code:
+There is another process of `st-start` running on your system. Because of that, the port `4444` is already in use. You can either stop the other process or create a file `st.config.ts` in the project folder next to `package.json` with the following code:
 
 {% code title="st.config.ts" %}
 ```typescript
