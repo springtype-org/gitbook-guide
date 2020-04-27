@@ -30,7 +30,7 @@
 * [Motivation](motivation.md)
 * [License](license.md)
 * [Who uses SpringType?](who-uses-springtype.md)
-* [Source Code on Github](https://github.com/springtype-org)
+* [Source code on Github](https://github.com/springtype-org)
 * [Sponsor us on Github!](https://github.com/sponsors/kyr0)
 * [Become a Patreon!](https://www.patreon.com/springtype)
 * [Our Backers](https://github.com/springtype-org/springtype/blob/master-v2/BACKERS.md)
