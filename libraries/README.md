@@ -9,6 +9,6 @@ TODO
 
 
 {% hint style="danger" %}
-**Found a bug or misleading information?** [Please repor](https://github.com/springtype-org/springtype/issues)
+**Found a bug or misleading information?** [Please report an issue.](https://github.com/springtype-org/springtype/issues)
 {% endhint %}
 
