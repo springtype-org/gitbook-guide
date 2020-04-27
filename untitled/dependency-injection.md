@@ -24,6 +24,10 @@ export class CryptoUtil {
 }
 ```
 {% endcode %}
+
+**Injecting non-injectable classes**
+
+TODO
 {% endtab %}
 
 {% tab title="2. Functional API" %}
