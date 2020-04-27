@@ -4,13 +4,21 @@ description: A collection of common errors that might happen during development.
 
 # Common Errors
 
-## TODO 1
+## Error: listen EADDRINUSE: address already in use 127.0.0.1:4444
 
-Cde
+There is another port of `st-start` running on your system. Because of that, the port `4444` is already in use. You can either stop the other process or create a file `st.config.ts` with the following code:
 
-## TODO
+{% code title="st.config.ts" %}
+```typescript
+import { setConfig } from "st-start";
 
-Abc
+setConfig({
+    port: 4445 /* or any other free port you desire */
+});
+```
+{% endcode %}
+
+## 
 
 
 
