@@ -34,7 +34,7 @@ The UX designer asks you to integrate a jQuery plugin? Or to use some CSS framew
 {% endhint %}
 {% endtab %}
 
-{% tab title="2. API\'s" %}
+{% tab title="2. API" %}
 **Object-oriented API**
 
 A component is a standard TypeScript class and @attr attributes are like properties in React. The `render()` method returns `tsx`:
