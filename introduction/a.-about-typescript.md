@@ -5,7 +5,7 @@ description: A quick introduction on how to use TypeScript with SpringType.
 # A. About TypeScript
 
 {% tabs %}
-{% tab title="Type Safety" %}
+{% tab title="1. Type Safety" %}
 SpringType is a typed superset of JavaScript. It feels like JavaScript, but with some type enhancements. You'd just switch from `.js` file extension to `.ts` for all files not containing TSX syntax. Type safety is optional. Valid JavaScript code is valid TypeScript code. You can disable type checks or use types like `any` and `unkown`.
 
 **Pros and Cons of type safety**
@@ -35,7 +35,7 @@ We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/)
 {% endhint %}
 {% endtab %}
 
-{% tab title="TSX" %}
+{% tab title="2. TSX" %}
 TypeScript allows us to use the TSX domain-specific language. TSX is typed JSX and JSX is an XML-syntax to describe a virtual DOM \(HTML-like\) structure which is being transformed into JSON by the TypeScript compiler:
 
 ```typescript
@@ -83,7 +83,7 @@ SpringType has no complex VDOM algorithm and no magic DOM abstraction that would
 ```
 {% endtab %}
 
-{% tab title="Modules" %}
+{% tab title="3. Modules" %}
 We do often use external libraries to quickly implement features that otherwise would take hours to implement on our own. Therefore we call e.g. `yarn add st-materialize` to import and use the beautiful Material Design `<MatInput />` component from our [officially supported Materialize.css library](../libraries/materialize.css.md).
 
 The best practice to import such `npm` modules is:
@@ -119,7 +119,7 @@ const chalk = require('chalk');
 ```
 {% endtab %}
 
-{% tab title="Dynamic imports" %}
+{% tab title="3. Dynamic imports" %}
 Based on the dynamic import feature of TypeScript, static code dependencies can be replaced by a technique that loads code on demand:
 
 ```typescript
@@ -141,7 +141,7 @@ SpringTypes DOM Router has built-in support for dynamic imports and code splitti
 {% endhint %}
 {% endtab %}
 
-{% tab title="Async/await" %}
+{% tab title="4. Async" %}
 Typically asynchronous code flows have been quite difficult to handle. You might remember so called _"callback hells"_,  or the diversity of opinions on _Promises_. 
 
 In SpringType, you can easily mix synchronous and asynchronous code using `async`/`await` - it still looks very much like synchronous code. When you use `await`, the program waits until the \(internal\) `Promise` will be fulfilled. If there is an exception, you can catch it with the `try` / `catch` method. 
@@ -179,7 +179,7 @@ If you're still wondering when and why you should use fat arrow functions, just 
 {% endhint %}
 {% endtab %}
 
-{% tab title="Reactiveness" %}
+{% tab title="5. Reactive" %}
 On top of the TypeScript standard library, we've implemented some functions to provide you with the tools to implement reactive call flows without the need to use streams.
 
 **Run**
@@ -244,5 +244,9 @@ calcAnimation(...);
 
 {% hint style="success" %}
 **Still wondering about a thing?** Get in touch with us! [![](../.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
+{% hint style="danger" %}
+**Found a bug or misleading information?** [Please report an issue.](https://github.com/springtype-org/springtype/issues)
 {% endhint %}
 

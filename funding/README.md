@@ -16,3 +16,9 @@ A cross-platform library and CLI to copy files and folders just like `cp`.
 
 A cross-platform library and CLI to create files and directories recursively `mkdir`.
 
+
+
+{% hint style="danger" %}
+**Found a bug or misleading information?** [Please repor](https://github.com/springtype-org/springtype/issues)
+{% endhint %}
+

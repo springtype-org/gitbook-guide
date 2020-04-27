@@ -2,7 +2,7 @@
 description: A few words on why we've created another framework. Please become a Patreon.
 ---
 
-# Motivation & Funding
+# Motivation
 
 We've seen many frameworks rise and fall. The only thing that seems to be constant, is change. While projects like React, Angular and Vue became large code bases, non-framework approaches like Svelte and Stencil are promoting methods of inlining functionality to get around the need to deploy a framework.
 
@@ -16,4 +16,12 @@ There are many, those frameworks have in common, but lets pick out some major ve
 With SpringType, we're breaking these limitations, while providing a state-of-the-art API. SpringType is a micro-framework that allows component-driven development and safe, native DOM API access at the same time. The size of the transpiled and optimized framework is at records low and there is still potential as we're in beta phase right now.
 
 SpringType is an attempt to give you back the power: _You decide what happens and when_.
+
+{% hint style="success" %}
+**Still wondering about a thing?** Get in touch with us! [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
+{% hint style="danger" %}
+**Found a bug or misleading information?** [Please report an issue.](https://github.com/springtype-org/springtype/issues)
+{% endhint %}
 

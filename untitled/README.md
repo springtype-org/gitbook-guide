@@ -30,7 +30,11 @@ This package contains all implementations necessary for modern web development:
 
 Finally, to transpile and bundle everything that belongs to a SpringType project, `st-start` was written. It comes with a customizable API, a CLI, live reload DevServer and creates high performance production builds.
 
-{% hint style="info" %}
-**Are you missing something?** Propose an API here: [![](../.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% hint style="success" %}
+**Still wondering about a thing?** Get in touch with us! [![](../.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
+{% hint style="danger" %}
+**Found a bug or misleading information?** [Please repor](https://github.com/springtype-org/springtype/issues)
 {% endhint %}
 

@@ -4,13 +4,21 @@ description: A collection of common errors that might happen during development.
 
 # Common Errors
 
-## Can I become who I want to be?
+## TODO 1
 
-That's a tough question but thankfully, our team is on it. Please bear with us while we're investigating.
+Cde
 
-## Have you had a chance to answer the previous question?
+## TODO
 
-Yes, after a few months we finally found the answer. Sadly, Mike is on vacations right now so I'm afraid we are not able to provide the answer at this point.
+Abc
 
 
+
+{% hint style="success" %}
+**Still wondering about a thing?** Get in touch with us! [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
+
+{% hint style="danger" %}
+**Found a bug or misleading information?** [Please report an issue.](https://github.com/springtype-org/springtype/issues)
+{% endhint %}
 
