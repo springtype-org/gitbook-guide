@@ -356,7 +356,7 @@ export class ErrorMessage extends st.component<IErrorMessageAttrs> {
 st.render(<ErrorMessage message="Happy error :)" />, document.body);
 ```
 
-This is like fishing in the DOM tree and allows you to access DOM elements once after they have been \(re-\)rendered.
+This is like fishing in the DOM tree and allows you to access DOM elements after they have been \(re-\)rendered.
 {% endtab %}
 
 {% tab title="6. CSS" %}
