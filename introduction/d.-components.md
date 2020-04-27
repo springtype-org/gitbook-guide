@@ -295,7 +295,7 @@ export class Container extends st.component {
 {% tab title="5. Updating UI " %}
 **Updating rendered DOM elements**
 
-We had a fancy VDOM algorithm that would diff the whole DOM and only apply atomic change-sets, but we deprecated it due to its complexity. Our current approach means to have only one more line of code but this massively enhances readability and simplicity. 
+We had a fancy VDOM algorithm that would diff the whole DOM and only apply atomic change-sets, but we deprecated it due to its complexity. Our current approach means to only have one more line of code but this massively enhances readability and simplicity. 
 
 In SpringType you can easily understand where, when and why the UI updates:
 
