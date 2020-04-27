@@ -6,7 +6,7 @@ description: Here we're showing how we set up new SpringType projects
 
 We're programmers and that means, we want our work to not be repetitive :-\)  
   
-So, let's lay back and let the SpringType Scaffolder [**`st-create`**](https://github.com/springtype-org/st-create)set up a project for you:
+So, let's lay back and let the SpringType scaffolding tool [**`st-create`**](https://github.com/springtype-org/st-create)set up a project for you:
 
 `$ st-run st-create`
 

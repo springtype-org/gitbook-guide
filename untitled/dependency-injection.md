@@ -5,7 +5,7 @@ description: Understanding the SpringType dependency injection system.
 # Dependency Injection
 
 {% tabs %}
-{% tab title="1. Injectables" %}
+{% tab title="Injectables" %}
 Unlike React, we've implemented some standard features, e.g. for Inversion of Control. But unlike Angular, we don't need complex module configurations.
 
 **Dependency Injection \(DI\)**
@@ -32,7 +32,7 @@ export class CryptoUtil {
 \*\*\*\*
 {% endtab %}
 
-{% tab title="2. Functional API" %}
+{% tab title="Functional API" %}
 **Functional API**
 
 Now if you'd like to share a single instance of this service across your application and re-use it in many functions and components, you could either use the functional interface:
@@ -43,7 +43,7 @@ cryptoUtil.hash('test');
 ```
 {% endtab %}
 
-{% tab title="3. Injection hierarchy" %}
+{% tab title="Injection hierarchy" %}
 **Injection trees**
 
 Injectable can be injected in injectables. Be careful with cyclic dependencies though.
@@ -60,7 +60,7 @@ export class AuthService {
 {% endcode %}
 {% endtab %}
 
-{% tab title="4. Custom factory functions" %}
+{% tab title="Custom factory functions" %}
 **Factory and custom factory functions**
 
 There are rare cases where you'd want the injection to create a new instance of a class for each injection point:
