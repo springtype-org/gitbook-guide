@@ -331,7 +331,7 @@ export class ErrorMessage extends st.component<IErrorMessageAttrs> {
 
 **Refs and native DOM access**
 
-TSX is internally transformed into HTML elements. While rendering, we know exactly, which element belongs what component instance. So if you'd like to get hold of some native DOM element reference, you can do so by asking the renderer to remind a reference for you via `@ref` and `ref= {{ ... }}` 
+TSX is internally transformed into HTML elements. While rendering, we know exactly, which element belongs to what component instance. So if you'd like to get hold of some native DOM element reference, you can do so by asking the renderer to remind a reference for you via `@ref` and `ref= {{ ... }}` 
 
 ```typescript
 @component
