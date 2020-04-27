@@ -1,8 +1,10 @@
 ---
-description: A comprehensive guide on how to customize bundling.
+description: >-
+  A comprehensive guide on how to customize the SpringType build system:
+  st-start
 ---
 
-# Bundler
+# Build System
 
 TODO
 

@@ -1,6 +1,8 @@
 ---
-description: 3rd-party integrations
+description: 3rd-party integrations of popular frameworks and standards
 ---
 
-# Libraries
+# Official Libraries
+
+TODO
 

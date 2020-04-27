@@ -1,4 +1,10 @@
-# Code Generator
+---
+description: >-
+  Instead of creating projects, components and services manually, we generate
+  them.
+---
+
+# Scaffolding
 
 [**`st-create`**](https://github.com/springtype-org/st-create) is a versatile, template based code generator:
 
