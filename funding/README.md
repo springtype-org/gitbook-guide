@@ -1,24 +1,16 @@
 ---
-description: Command line interface tools to help you on the go.
+description: Command line interface tools to help you along the way.
 ---
 
 # CLI tools
 
-### st-rm-rf
+In an attempt to make your projects work seamless cross-platform, namely on Windows, MacOS and Linux, we're seeking for a streamlined way to implement filesystem operation and sequential command operation. This lead to the implementation of our small toolbox of CLI programs.
 
-A cross-platform library and CLI to remove files and folders just like `rm -rf`.
-
-### st-cp
-
-A cross-platform library and CLI to copy files and folders just like `cp`.
-
-### st-mkdir
-
-A cross-platform library and CLI to create files and directories recursively `mkdir`.
-
-
+{% hint style="success" %}
+**Still wondering about a thing?** Get in touch with us! [![](../.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
+{% endhint %}
 
 {% hint style="danger" %}
-**Found a bug or misleading information?** [Please repor](https://github.com/springtype-org/springtype/issues)
+**Found a bug or misleading information?** [Please report an issue.](https://github.com/springtype-org/springtype/issues)
 {% endhint %}
 
