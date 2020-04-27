@@ -25,7 +25,7 @@ export class CryptoUtil {
 ```
 {% endcode %}
 
-**Injecting non-injectable classes**
+**Injecting standard classes**
 
 TODO
 {% endtab %}
