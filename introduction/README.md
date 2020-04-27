@@ -8,3 +8,7 @@ SpringType is a micro-framework, putting **Simplicity First**. This is cool, bec
   
 **Let's go, have a lot of fun! May your next project become successful, faster.**
 
+{% hint style="info" %}
+[Click here](a.-about-typescript.md) to start with the guide now. 
+{% endhint %}
+
