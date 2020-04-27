@@ -62,7 +62,7 @@ Only with production builds you'll see **Code Split** working the way it's desig
 
 ### Advanced build system configuration
 
-There is much more to learn about the SpringType build system. In fact, we've made sure that every nifty detail of the build, environment configuration and additional tasks that might be required to run in your project, [are configurable](../bundle-1.md).
+There is much more to learn about the SpringType build system. In fact, we've made sure that every nifty detail of the build, environment configuration and additional tasks that might be required to run in your project, [are configurable]().
 
 {% hint style="success" %}
 **Still wondering about a thing?** Get in touch with us! [![](../.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
