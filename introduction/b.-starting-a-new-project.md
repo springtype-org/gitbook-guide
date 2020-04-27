@@ -11,9 +11,9 @@ So, let's lay back and let the SpringType scaffolding tool [**`st-create`**](htt
 `$ st-run st-create`
 
 {% hint style="success" %}
-**You don't know** [**`st-run`**](https://github.com/springtype-org/st-run) **yet?** It's a chaining, fast, always up-to-date `npx` alternative && a сross-platform system command executor 🚀.   
+**You don't know** [**`st-run`**](https://github.com/springtype-org/st-run) **yet?** It's a chaining, fast `npx` alternative and сross-platform command executor 🚀.   
   
-So if you face something like `Command not found`, make sure to run: `yarn global add st-run`
+If you face something like `st-run: Command not found`, make sure to run: `yarn global add st-run`
 {% endhint %}
 
 {% hint style="warning" %}
