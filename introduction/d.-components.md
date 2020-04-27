@@ -292,7 +292,7 @@ export class Container extends st.component {
 {% endcode %}
 {% endtab %}
 
-{% tab title="5. Updates " %}
+{% tab title="5. Updating UI " %}
 **Updating rendered DOM elements**
 
 We had a fancy VDOM algorithm, but we deprecated it due to it's complexity. Our current approach means to have only one more line of code but this massively enhances readability and simplicity. 
