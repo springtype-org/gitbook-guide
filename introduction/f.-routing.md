@@ -54,6 +54,14 @@ If your project becomes even more sophisticated, you might like to offload bandw
 ```
 {% endcode %}
 
+{% hint style="info" %}
+It is super important to export a component as **default**: `@component   
+export default class MyComponent extends st.component {   
+  ...   
+}`   
+when using code split.
+{% endhint %}
+
 **Cache Groups**
 
 When SpringType routes between paths, it caches component instances. This allows for highly efficient switches, because we're only flipping CSS display values. You can control this behavior by setting cache groups. 
