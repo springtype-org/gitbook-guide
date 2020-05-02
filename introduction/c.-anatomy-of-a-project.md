@@ -1,5 +1,5 @@
 ---
-description: 'In fact, it''s just 3 to 4 files to really care about.'
+description: Just a few files to care about.
 ---
 
 # C. Anatomy of a project
