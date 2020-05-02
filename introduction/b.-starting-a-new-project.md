@@ -1,5 +1,5 @@
 ---
-description: Here we're showing how we set up new SpringType projects
+description: How we set up a SpringType project in no time.
 ---
 
 # B. Starting a new project
