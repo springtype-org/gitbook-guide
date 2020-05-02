@@ -1,3 +1,7 @@
+---
+description: How Components work in SpringType.
+---
+
 # D. Components
 
 {% tabs %}
@@ -486,56 +490,143 @@ This allows you to apply UI updates at highest speed, without any abstraction la
 
 You can easily import CSS, CSS as CSS modules \(auto-generates class names, scoped to your component\), Sass \(SCSS\) and Less files. They compile as you go and integrate, inline and optimize with zero configuration:
 
-{% code title="error-message.tsx" %}
+{% code title="src/page/styling/styling-page.tpl.tsx" %}
 ```typescript
-// simply import (global, without CSS modules)
-import "error-message.scss";
+// tsx function is needed for TSX to JSON transform processing
+import { tsx } from "springtype/web/vdom";
+import { Link } from "springtype/web/router";
 
-// with CSS module support
-import styles from "error-message.scss";
+// class import to reference the component scope
+import StylingPage from "./styling-page";
 
-...
+// CSS typed stylesheet import (SCSS here, but you can use Less, Sass, CSS syntax too)
+// Styles that need pre-processing will auto-transpiled
+// @ts-ignore
+import * as styles from "./css-demo.tss.scss";
 
-render() {
-    return <p class={styles.black}></p>
-}
+// Classic import (no typings; no unique class names)
+import "./css-demo.scss";
 
-...
+const fontColor = "#0000cc";
 
-// or without CSS modules
+export default (component: StylingPage) => (
+    <fragment>
+        <Link>Back</Link>
 
-...
+        <h1>Styling</h1>
 
-render() {
-    return <p class="black"></p>
-}
+        {/* Typed Style Sheets allow for auto-completable class names and unique class names for each import */}
+        <div class={styles.container}>
+            Typed StyleSheet (TSS) import
+        </div>
 
-...
+        {/* Classic import */}
+        <div class="container bordered rounded padded">
+            Classic StyleSheet import
+        </div>
+
+        {/* Classic import, with array syntax */}
+        <div class={[styles.container, "bordered", "rounded", "padded"]}>
+            Classic StyleSheet import, array syntax
+        </div>
+
+        <div class={["container"]}>
+
+            {/* Inline styles in JSON syntax allow for auto-completable CSS API */}
+            <p style={{ color: '#cc0000' }}>Inline style demo, JSON syntax</p>
+        </div>
+
+        <div class={["container"]}>
+
+            {/* Classic inline style syntax, with dynamic template string */}
+            <p style={`color: ${fontColor}`}>Inline style demo, JSON syntax</p>
+        </div>
+
+    </fragment>
+);
 ```
 {% endcode %}
 
-{% code title="error-message.scss" %}
+A standard StyleSheet, like a CSS, SCSS or Less file, would look like this:
+
+{% code title="src/page/styling/css-demo.scss" %}
 ```css
-.black {
-    color: #fff;
-    background-color: #000;
+.container {
+    margin-top: 20px;
+    background-color: #ddd;
+}
+
+.bordered {
+    border: 1px solid #000;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+.padded {
+    padding: 10px;
 }
 ```
 {% endcode %}
+
+Whereas for Typed StyleSheets \(TSS\), a `.tss` file extension needs to be prepended:
+
+{% code title="src/page/styling/css-demo.tss.scss" %}
+```css
+.container {
+    background-color: #ddd;
+}
+```
+{% endcode %}
+
+Once imported and as soon as the code is reachable, the transpiler will generate a `.d.ts` file with the typing informations for the CSS class names, extrapolated from the `.tss.scss` file:
+
+{% code title="src/page/styling/css-demo.tss.scss.d.ts" %}
+```typescript
+// This file is generated automatically
+export const container: string;
+```
+{% endcode %}
+
+With Typed StyleSheets, **auto-complete and type-safety is available for CSS class names too**.
 {% endtab %}
 
 {% tab title="7. Assets" %}
-**Using assets**
+**Importing assets**
 
-For sure you'll want to use some images and other assets in your project. This is super easy to handle in SpringType. Just create some folder where you want to save your assets and provide the built-in `require()` function with a relative path:
+Finally, we'll want to integrate some images and other assets in our websites and PWA's. With SpringType, is a no-brainer. 
+
+**Simple `static` folder imports**
+
+In SpringType, there is a default static assets folder called `static`. This is compatible with React guidelines. If you copy a file to `static/some-image.png`, it will be available just like that:
 
 ```typescript
-<img src={ require('../../assets/some-image.png') } />
+<img src="/static/some-image.png" />
 ```
 
-**Automatic asset optimization**
+An example of this method can be found in `src/page/service/service-page.tsx`.
 
-We strongly recommend to always import assets or use the require\(\) function.  Doing so will inform the SpringType build system about the existence of this asset and include it in the PWA manifest cache file as well as copying it over and optimizing it for production builds.
+**Dynamic `import` asset imports**
+
+Using the static method of importing assets has two major gotchas:
+
+* It only works when the deployed path is `/`, otherwise you need to prepend the path, which introduces additional complexity.
+* If the browser caches the file, it will be hard to control when to invalidate the cache.
+
+To prevent these gotchas, the dynamic import method allows for **automatic asset optimization and cache invalidation.**
+
+This is implemented by a loader that is activated when importing static assets by relative imports. The loader analyzes the target file path for both the DevServer and production build environment and returns the right path for each context. 
+
+For the production mode, it will also postpone a hash, so when the files contents change, the hash will change and the browser is forced to reload the image. This effectively resolves the caching issue, including caching issues for PWA's, because the manifest file will also update on asset file changes: 
+
+```typescript
+import someImage from "../../../assets/img/some.png";
+
+<img src={someImage} />
+```
+
+An example of this method can be found in `src/page/styling/styling-page.tpl.tsx`.
 {% endtab %}
 {% endtabs %}
 

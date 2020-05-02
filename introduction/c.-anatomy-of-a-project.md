@@ -6,9 +6,13 @@ description: 'In fact, it''s just 3 to 4 files to really care about.'
 
 Once you've generated your first SpringType project, you'll notice a few files and folders: 
 
-![Anatomy of a SpringType project.](../.gitbook/assets/bildschirmfoto-2020-04-28-um-17.42.55.png)
+![](../.gitbook/assets/anatomy.png)
 
-All source files should be placed in the directory `src` and assets like images and fonts should be copied into the `assets` directory. The `node_modules` folder contains JavaScript dependency packages installed via `yarn`/`npm` . It's a good practice to ignore this directory and exclude it from version control and IDE code indexing.
+All source files should be placed in the directory `src` and assets like images and fonts should be copied into the `static` directory. The `node_modules` folder contains JavaScript dependency packages installed via `yarn`/`npm` whereas the `dist` folder contains the latest production build and all its assets. 
+
+{% hint style="info" %}
+It's a good practice to Git `.ignore` the directories `node_modules` and `dist`. You should also consider excluding them from IDE code indexing for performance.
+{% endhint %}
 
 **Entrypoint: `src/index.html`**
 
@@ -25,6 +29,18 @@ This file is the entry point for your TypeScript and TSX code. Usually, this is 
 **Node package config: `package.json`**
 
 This file describes your project in terms of the [Node.js](https://nodejs.org/) / [npm](https://npmjs.com) / [yarn](https://yarnpkg.com/en/) ecosystem. [If that doesn't sound familiar, please read on here](https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/).
+
+A typical `package.json` file of a SpringType project looks like this:
+
+![SpringType projects have a &quot;springtype&quot; dependency](../.gitbook/assets/package-json.png)
+
+As you can see, we have three default **`npm` scripts**: `clean`, `start` and `start:prod`. 
+
+* `clean` wipes the `dist` folder
+* `start` runs the DevServer on `http://localhost:4444` by default
+* `start:prod` creates a production build and stores it in the `dist` folder
+
+The `devDependencies` are also managed by `st-start`. Using this architecture, you are autoritative for updating package versions, e.g. in security risk situations.
 
 **TypeScript config: `tsconfig.json`**
 
