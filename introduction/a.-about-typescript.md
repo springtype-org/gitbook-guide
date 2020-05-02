@@ -38,12 +38,31 @@ We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/)
 {% tab title="2. TSX" %}
 TypeScript allows us to use the TSX domain-specific language. TSX is typed JSX and JSX is an XML-syntax to describe a virtual DOM \(HTML-like\) structure which is being transformed into JSON by the TypeScript compiler:
 
+{% code title="src/index.tsx" %}
 ```typescript
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
+
 st.render(
-  <p>SpringType: Simplicity is key! :-)</p>, 
-  document.body
+  <p>SpringType: Simplicity is key! :-)</p>
 );
 ```
+{% endcode %}
+
+{% hint style="info" %}
+`st.render()` renders to document.body by default, but you can set any other existing DOM element target, e.g. to do portal rendering:   
+`st.render(<p>Portal</p>, document.querySelector('.user-panel'))`
+{% endhint %}
+
+In the guide we render the whole app with this command:
+
+{% code title="src/index.tsx" %}
+```typescript
+...
+
+st.render(<Guide />)
+```
+{% endcode %}
 
 {% hint style="warning" %}
 The correct file extension for TypeScript source files containing TSX syntax is `.tsx` . There is also a requirement for importing the `tsx` function from module `springtype/web/vdom` 
@@ -55,18 +74,22 @@ SpringTypes build system takes the transformed JSON structure, optimizes it by p
 
 Sometimes, you might need to directly return an array of virtual elements to be rendered, because there should be none in between. Therefore, you'd use `<>` and `</>` in React, but `<fragment>` in SpringType. We find this a bit more self-explanatory. For sure, TSX supports comments and interpolations too:
 
-{% code title="some-component.tsx" %}
+{% code title="src/component/fragment-demo.tsx" %}
 ```typescript
-...
+import { component } from "springtype/web/component";
+import { tsx } from "springtype/web/vdom";
+import { st } from "springtype/core";
 
-render() {
-  return <fragment>
+@component
+export class FragmentDemo extends st.component {
+  render() {
+    return <fragment>
       {/* Some random values */}
       <p>A {Math.random()}</p>
       <p>B {Math.random()}</p>
-  </fragment>
+    </fragment>
+  }
 }
-...
 ```
 {% endcode %}
 
@@ -89,9 +112,11 @@ We do often use external libraries to quickly implement features that otherwise 
 The best practice to import such `npm` modules is:
 
 ```typescript
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
 import { MatInput } from "st-materialize";
 
-st.render(<MatInput label="Hello, world!" />, document.body);
+st.render(<MatInput label="Hello, world!" />);
 ```
 
 However, these imports are static and thus result in larger code sizes compared to dynamic imports which can be used to split code in smaller chunks.
@@ -123,6 +148,8 @@ const chalk = require('chalk');
 Based on the dynamic import feature of TypeScript, static code dependencies can be replaced by a technique that loads code on demand:
 
 ```typescript
+import { run } from "springtype/core/lang/run";
+
 const loadModuleB = async() => {
   return import('../module-b');
 }
@@ -149,6 +176,10 @@ In SpringType, you can easily mix synchronous and asynchronous code using `async
 This technique is often combines with the use of fat arrow functions:
 
 ```typescript
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
+import { run } from "springtype/core/lang/run";
+
 const loadUsers = async() => fetch('/users');
 
 run(async() => {
@@ -187,6 +218,8 @@ On top of the TypeScript standard library, we've implemented some functions to p
 Runs a function synchronously or asynchronously and returns its result:
 
 ```typescript
+import { run } from "springtype/core/lang/run";
+
 const result = run(async() => {
   ...
 });
@@ -197,6 +230,8 @@ const result = run(async() => {
 Transforms a function into one that is called only once in  `n` milliseconds, no matter how often it is actually called:
 
 ```typescript
+import { debounce } from "springtype/core/lang/debounce";
+
 const sendRequestDebounced = debounce(async(...params) => {
     ...
 }, /*ms*/ 500);
@@ -209,6 +244,8 @@ sendRequestDebounced(...);
 Transforms a function into one whose calls are alway delayed by `n` milliseconds:
 
 ```typescript
+import { delay } from "springtype/core/lang/delay";
+
 const sendRequestDelayed = delay(async(...) => {
     ...
 }, /*ms*/ 500);
@@ -221,6 +258,8 @@ sendRequestDelayed(...);
 Transforms a function into one that calls its code at the next JavaScript VM tick. This is helpful if JavaScript code must wait until synchronous DOM operations has finished:
 
 ```typescript
+import { immediate } from "springtype/core/lang/immediate";
+
 const sendRequestImmediate = immediate(async(...params) => {
     ...
 });
@@ -233,11 +272,32 @@ sendRequestImmediate(...);
 Transforms a function into one that calls its code after the browsers current rendering has been refreshed. This allows to implement smooth animations whose parameters are calculated or set using JavaScript \(e.g. you're setting DOM element `style` properties\):
 
 ```typescript
+import { animationFrame } from "springtype/core/lang/animation-frame";
+
 const calcAnimation = animationFrame(async(...params) => {
     ...
 });
 
 calcAnimation(...);
+```
+
+**Tap**
+
+This function takes a value, logs it via `st.log` and references it to the global scope via `$tap` or a custom tap name. It also returns the value. This is useful as an intermediate debugging tool:
+
+```typescript
+import { tap } from "springtype/core/lang/tap";
+
+lost(inFunctional(tap(code())));
+
+// the return of tap is seamlessly logged and 
+// referenced as globalThis.$tap
+
+lost(tap(inFunctional(tap(code(), 'code'), 'inFunctional')));
+
+// globalThis.$code, globalThis.$inFunctional
+
+// btw: globalThis refers to window in browsers
 ```
 {% endtab %}
 {% endtabs %}

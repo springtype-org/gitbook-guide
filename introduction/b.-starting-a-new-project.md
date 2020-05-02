@@ -30,13 +30,14 @@ Most probably, you're missing Node.js and `npm` on your system. [Just install No
 
 If everything goes well, you should see this beautiful screen:
 
-![Setting up SpringType projects in seconds](../.gitbook/assets/st-create.png)
+![Using st-create to generate a new project](../.gitbook/assets/st-create%20%281%29.png)
 
 Let's start with choosing `project` with the  `guide` template. You can chose an arbitrary name for this project. It's just to learn about SpringType. 
 
 When the scaffolding finishes, the SpringType build system `st-start` will start on: `http://localhost:4444` assuming that the environment is `development`. You can always restart the DevServer by running `yarn start`.
 
-Open a browser and point it to, [`http://localhost:4444`](http://localhost:4444), you should see the SpringType guide by now.
+Open a browser and point it to [`http://localhost:4444`](http://localhost:4444).   
+You should see the SpringType guide showing up.
 
 {% hint style="info" %}
 **HMR \(Hot Module Replacement\)** makes sure that each time you change source files or assets, the website will be reloaded.
@@ -62,7 +63,9 @@ Only with production builds you'll see **Code Split** working the way it's desig
 
 ### Advanced build system configuration
 
-There is much more to learn about the SpringType build system. In fact, we've made sure that every nifty detail of the build, environment configuration and additional tasks that might be required to run in your project, [are configurable]().
+There is much more to learn about the SpringType build system. In fact, we've made sure that every nifty detail of the build, environment configuration and additional tasks that might be required to run in your project, are configurable.
+
+To set custom build config settings, create a file called `st.config.ts` in the root directory. For the guide project, it will already be there. This file and its contents will be further discussed in the last section of [Anatomy of a project](c.-anatomy-of-a-project.md).
 
 {% hint style="success" %}
 **Still wondering about a thing?** Get in touch with us! [![](../.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)

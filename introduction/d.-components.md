@@ -9,10 +9,13 @@ SpringType's TSX supports **HTML and SVG markup**. It feels like React, but with
 You can render TSX markup with one simple function call: 
 
 ```typescript
-st.render(<p>Hello, SpringType! </p>, document.body);
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
+
+st.render(<p>Hello, SpringType! </p>);
 ```
 
-But it's way cooler to define _Components_: Using them, you can re-use code you've written once, make markup rendering dynamic, conditionally and customizable by _Attributes_ and handle user interaction with _Events_. Data can be assigned with local States and _Context States_. 
+But it's way cooler to define _**Components**_: Using them, you can re-use code you've written once, make markup rendering dynamic, conditionally and customizable by _Attributes_ and handle user interaction with _Events_. Data can be assigned with local States and _Context States_. 
 
 We know this pattern from React, Angular and Vue. Just, in SpringType, we do that without much abstraction and give you native DOM API access. 
 
@@ -39,28 +42,49 @@ The UX designer asks you to integrate a jQuery plugin? Or to use some CSS framew
 
 A component is a standard TypeScript class and @attr attributes are like properties in React. The `render()` method returns `tsx`:
 
-{% code title="error-message.tsx" %}
+{% code title="src/component/error-message-demo.tsx" %}
 ```typescript
-interface IErrorMessageAttrs {
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
+import { AttrType } from "springtype/web/component/interface";
+import { component, attr } from "springtype/web/component";
+
+// this interface allows for an auto-completable 
+// API when using the <ErrorMessage /> component 
+// in a modern IDE like VS Code or IntelliJ IDEA / WebStorm
+export interface IErrorMessageAttrs {
   message: string;
+  shinesthrough: string;
 }
 
 @component
-export class ErrorMessage extends st.component<IErrorMessageAttrs> {
+export default class ErrorMessage extends st.component<IErrorMessageAttrs> {
 
+  // sets a specific DOM tag name
   tag = 'my-error-message';
 
+  // this attribute it not transparent; it doesn't 
+  // shine through to the DOM, thus it's not being
+  // rendered in the resulting HTML representation
   @attr
-  message: string = "Hello, world!";
+  message: string = "Hello, world!"; // default value
   
   // this attribute shines throuh in DOM
-  @attr(AttributeType.DOM_TRANSPARENT)
-  cool: string = "yeah";
+  @attr(AttrType.DOM_TRANSPARENT)
+  shinesthrough: string = "someValueShinesThrough"; // default value
   
   render() {
       return <p>{ this.message }</p>;
   }
 }
+
+// st.render(<ErrorMessage message="foo" shinesthrough="yes" />);
+//
+// this would result in a DOM-rendered component like this:
+//
+// <my-error-message shinesthrough="yes">
+// . <p>foo</p>
+// </my-error-message>
 ```
 {% endcode %}
 
@@ -68,19 +92,24 @@ export class ErrorMessage extends st.component<IErrorMessageAttrs> {
 
 Either inside another component's `tsx` \(default\), or portal-like, somewhere in an existing DOM element:
 
+{% code title="src/index.tsx" %}
 ```typescript
-st.render(<ErrorMessage message="Happy error :)" />, document.body);
+st.render(<ErrorMessage message="Happy error :)" />);
 ```
+{% endcode %}
 
 And then, a beautiful, clean DOM will be rendered:
 
+{% code title="src/index.html at runtime \(in browser\): http://localhost:4444" %}
 ```markup
 <body>
-  <my-error-message cool="yeah">
+  ...
+  <my-error-message shinesthrough="someValueShinesThrough">
     <p>Happy error :)</p>
   </my-error-message>
 </body>
 ```
+{% endcode %}
 
 **External templates**
 
@@ -88,16 +117,21 @@ SpringType supports external template files. Such a template is just a replaceme
 
 This feels much like Angular and helps to keep the code more clean when templates grow:
 
-{% code title="login-page.ts" %}
+{% code title="src/page/login/login-page.ts" %}
 ```typescript
-import * as tpl from "./login-page.tpl";
+import { st } from "springtype/core";
+import { component, attr } from "springtype/web/component";
+
+// external TSX template import
+import tpl from "./login-page.tpl";
 
 @component({
+    // passes the template function reference to the component  
     tpl
 })
-export class LoginPage extends st.component {
+export default class LoginPage extends st.component {
 
-    onLoginClick = (click: MouseEvent) => {
+    onLoginClick = (evt: MouseEvent) => {
         console.log('Login clicked...');
     }
 }
@@ -106,13 +140,26 @@ export class LoginPage extends st.component {
 
 External templates have a class instance scope-binding. You can access the component instance just like within the `render()` method:
 
-{% code title="login-page.tpl.tsx" %}
+{% code title="src/page/login/login-page.tpl.tsx" %}
 ```typescript
+// class import to reference the component scope
+import LoginPage from "./login-page";
+
 export default (component: LoginPage) => (
     <fragment>
         <h1>Login</h1>
         <div class="container">
-            ...
+
+            Username:<br />
+            <input type="text" name="username" />
+            
+            <br /><br />
+            
+            Password:<br />
+            <input type="password" name="password" />
+            
+            <br /><br />
+
             <button onClick={component.onLoginClick}>
                 Login!
             </button>
@@ -126,36 +173,83 @@ export default (component: LoginPage) => (
 
 A simple functional component looks like this:
 
+{% code title="src/component/functional-container-demo.tsx" %}
 ```typescript
+import { tsx } from "springtype/web/vdom";
+import { st } from "springtype/core";
+import { component, Component, render } from "springtype/web/component";
+
 // simplified functional component, just renders what is given
-const Container = component(
+export const Container = component(
   render((container: Component) => {
     return <div>{container.renderChildren()}</div>;
   })
 );
-st.render(<Container>Hello! :-)</Container>, document.body);
+
+/*
+st.render(
+  <Container>
+    <strong>Rendered inside container</strong>
+  </Container>
+);
+
+would be rendered as:
+
+<fnc-1>
+  <div><strong>Rendered inside container</strong></div>
+</fnc-1>
+*/
 ```
+{% endcode %}
 
 For cases where you'd need closure states, you can return the `render` function after processing. The component instance handed in allows you access to attributes and the components standard lifecycle API:
 
+{% code title="src/component/functional-clock.tsx" %}
 ```typescript
-const Clock = component((clock: Component) => {
-  
-  let now = Date.now();
-  
-  const updateUnixTime = () => {
-    now = Date.now();
-    st.renderPartial(clock.timeDisplay, now);
-  });
-  
-  return () => (
-    <fragment>
-      <button onClick={updateUnixTime}>Show time</button>
-      <p ref={{ timeDisplay: clock }}>{now}</p>
-    </fragment>
-  );
-});
-st.render(<Clock />, document.body);
+import { tsx } from "springtype/web/vdom";
+import { st } from "springtype/core";
+import { component, Component } from "springtype/web/component";
+
+const getTime = () => new Date().toString();
+
+export const Clock = component((clock: Component & {
+    timeDisplay: HTMLElement
+}) => {
+
+    // closure-local scope state
+    let now: string = getTime();
+
+    // mouse event handler
+    const updateUnixTime = (evt: MouseEvent) => {
+
+        // update closure-local state
+        now = getTime();
+
+        // update display value
+        clock.renderPartial(now, clock.timeDisplay!);
+    };
+
+    // update every second
+    setInterval(updateUnixTime, 1000);
+
+    // initially render current state
+    return () => (
+        <fragment>
+            <button onClick={updateUnixTime}>Update time</button>
+            <p ref={{ timeDisplay: clock }}>{now}</p>
+        </fragment>
+    );
+}, 'clock' /* DOM tag name to use*/);
+```
+{% endcode %}
+
+Rendering via `st.render(<Clock />)`  would result in a fully functional component, updating the time display every second. The HTML structure will e.g. look like this:
+
+```markup
+<clock>
+  <button>Update time</button>
+  <p>Sat May 02 2020 17:31:43 GMT+0200 (Mitteleuropäische Sommerzeit)</p>
+</clock>
 ```
 
 {% hint style="warning" %}
@@ -174,36 +268,24 @@ We highly recommend not to use this pattern extensively. SpringType promotes Com
 {% tab title="3. Attrs" %}
 **Attributes**
 
-A SpringType component can set and receive attributes. This feels much like React properties, but in fact, it's just passing properties to a class and, if desired, passing it down to the DOM element directly:
+As already seen in section API, SpringType component can set and receive attributes. This feels much like React properties, but in fact, it's just passing properties to a class and, if desired, passing it down to the DOM element directly. using an additional flag:
 
-```typescript
-interface IErrorMessageAttrs {
-  message: string;
-}
-
-@component
-export class ErrorMessage extends st.component<IErrorMessageAttrs> {
-
-  @attr
-  message: string;
-  
-  render() {
-      return <p>{ this.message }</p>
-  }
-}
-```
-
-In case you'd want the attribute to be transparent and "shine through" to the DOM element, you'd just set one additional flag:
-
+{% code title="src/component/error-message-demo.tsx" %}
 ```typescript
   @attr(AttrType.DOM_TRANSPARENT)
-  message: string;
+  shinesthough: string = "defaultValue";
 ```
+{% endcode %}
+
+{% hint style="warning" %}
+Attributes that are of type `AttrType.DOM_TRANSPARENT` should be named lowercase. The DOM can't handle `camelCase` attribute names, so using such a naming would lead to inconsistent set/get operations.
+{% endhint %}
 
 **Outer native DOM attributes**
 
-Did you ever want to apply DOM attributes like `class`, `style`, `tabindex` and `id` to a component from outside - right wehre you use it? But the component doesn't give you any API to do so? In SpringType, there is no struggle:
+Did you ever want to apply DOM attributes like `class`, `style`, `tabindex` and `id` on a component from outside? In SpringType, it can be done like this:
 
+{% code title="src/index.tsx" %}
 ```typescript
 st.render(<ErrorMessage message="What do you know :)" 
     id="foo1" 
@@ -212,10 +294,11 @@ st.render(<ErrorMessage message="What do you know :)"
     style={{
         color: '#cc0000'
     }} 
-/>, document.body);
+/>);
 ```
+{% endcode %}
 
-For sure this works for any other component, HTML and SVG element as well. `style` is typed and auto-completed; `class` allows for `string` and `array` input.
+For sure this works for any other component, HTML and SVG element as well. `style` is typed and auto-completed with the standard `CSSDeclaration` interface; `class` allows for `string` and `array` values.
 {% endtab %}
 
 {% tab title="4. Children" %}
@@ -225,18 +308,21 @@ In SpringType we strongly promote the Composition over Inheritance pattern. Many
 
 One way of doing so, is writing small components that do one job well. Later, you can composite them:
 
-```text
-<MyPanel>
-  <MyButton>Click me!</MyButton>
-</MyPanel>
+```markup
+<SimplePanel>
+  <ErrorMessage message="Mayday, mayday!" />
+</SimplePanel>
 ```
 
-Writing such a MyPanel component, is pretty easy:
+Writing such a `<SimplePanel />` component is pretty easy:
 
-{% code title="my-panel.tsx" %}
+{% code title="src/component/simple-panel.tsx" %}
 ```typescript
+import { component } from "springtype/web/component";
+import { st } from "springtype/core";
+
 @component
-export class MyPanel extends st.component {
+export default class SimplePanel extends st.component {
 
     render() {
       return this.renderChildren();
@@ -245,7 +331,17 @@ export class MyPanel extends st.component {
 ```
 {% endcode %}
 
-However, what do you do, when there is a specific TSX markup and you'd like to render outer children at specific places?
+Rendering the above TSX would result in the following HTML structure:
+
+```markup
+<simplepanel>
+  <my-error-message shinesthrough="someValueShinesThrough">
+    <p>Mayday, mayday!</p>
+  </my-error-message>
+</simplepanel>
+```
+
+However, what do we do, when there is a specific TSX markup and you'd like to render outer children at specific places? This is where Slots come into play.
 
 **Slots**
 
@@ -253,37 +349,46 @@ Imagine that you want a `<Container />` component to render **outer children** a
 
 With SpringType, you have that in non-shadow DOM:
 
-{% code title="some-component.tsx" %}
+{% code title="src/index.tsx" %}
 ```typescript
-...
-
-render() {
-  return <p>
-      <Container>
-          <template name="footer">
-              <div>Placed into footer section</div>
-          </template>
-      </Container>
+st.render(
+  <p>
+    <ComplexPanel>
+      <template slot={ComplexPanel.HEADER}>
+        <div>MyHeader</div>
+      </template>
+      
+      <template slot={ComplexPanel.FOOTER}>
+        <div>MyFooter</div>
+      </template>
+          
+      <span>MyContent</span>
+    </ComplexPanel>
   </p>
-}
-...
+);
 ```
 {% endcode %}
 
-{% code title="container.tsx" %}
+{% code title="src/component/complex-panel.tsx" %}
 ```typescript
-@component
-export class Container extends st.component {
+import { component } from "springtype/web/component";
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
 
-    ...
+@component
+export class ComplexPanel extends st.component {
+
+    static readonly HEADER = "header";    
+    static readonly FOOTER = "footer";
     
     render() {
       return <div class="container">
           <div class="header">
-              <slot name="header" />
+              {this.renderSlot(ComplexPanel.HEADER, <p>Default header content</p>)}
           </div>
+          {this.renderChildren(<p>Default content</p>)}
           <div class="footer">
-              <slot name="footer" />
+              {this.renderSlot(ComplexPanel.FOOTER, <p>Default footer content</p>)}
           </div>
       </div>;
     }
@@ -293,47 +398,71 @@ export class Container extends st.component {
 {% endtab %}
 
 {% tab title="5. Updating UI " %}
-**Updating rendered DOM elements**
+**Updating existing DOM elements**
 
 We had a fancy VDOM algorithm that would diff the whole DOM and only apply atomic change-sets, but we deprecated it due to its complexity. Our current implementation requires you to specify what must be applied where and when. This is one more line of code but massively improves readability and simplicity. 
 
 In SpringType you can easily understand where, when and why the UI updates:
 
+{% code title="src/component/error-message-demo.tsx" %}
 ```typescript
-interface IErrorMessageAttrs {
-  message: string;
+import { st } from "springtype/core";
+import { tsx } from "springtype/web/vdom";
+import { AttrType } from "springtype/web/component/interface";
+import { component, attr } from "springtype/web/component";
+import { ref } from "springtype/core/ref";
+
+// this interface allows for an auto-completable 
+// API when using the <ErrorMessage /> component 
+// in a modern IDE like VS Code or IntelliJ IDEA / WebStorm
+export interface IErrorMessageAttrs {
+    message: string;
+    shinesThrough: string;
 }
 
 @component
 export class ErrorMessage extends st.component<IErrorMessageAttrs> {
 
-  @attr
-  // local state
-  message: string;
-  
-  @ref
-  messageDisplayRef: HTMLElement;
-  
-  setMessage(message: string) {
-    // update local state
-    this.message = message;
-    // trigger re-render
-    this.renderPartial(this.message, this.messageDisplayRef);
-  }
-  
-  render() {
-    return <p ref={{ messageDisplayRef: this }}>
-      { this.message }
-    </p>;
-  }
+    // sets a specific DOM tag name
+    tag = 'my-error-message';
+
+    // this attribute it not transparent; it doesn't 
+    // shine through to the DOM, thus it's not being
+    // rendered in the resulting HTML representation
+    @attr
+    message: string = "Hello, world!";
+
+    // this attribute shines throuh in DOM
+    @attr(AttrType.DOM_TRANSPARENT)
+    shinesThrough: string = "someValueShinesThrough";
+
+    @ref
+    messageDisplayRef: HTMLParagraphElement;
+
+    setMessage(message: string) {
+        
+        // update local state
+        this.message = message;
+
+        // trigger UI update
+        this.renderPartial(this.message, this.messageDisplayRef);
+    }
+
+    render() {
+        return <p ref={{ messageDisplayRef: this }}>{this.message}</p>;
+    }
 }
 ```
+{% endcode %}
+
+The method `this.renderPartial` is used to replace children of an already rendered DOM element by a new TSX template. Alternatively, you can update attributes using the native DOM API and `@ref` DOM element references.
 
 **Refs and native DOM access**
 
 TSX is internally transformed into HTML elements. While rendering, we know exactly, which element belongs to what component instance. So if you'd like to get hold of some native DOM element reference, you can do so by asking the renderer to remind a reference for you via `@ref` and `ref= {{ ... }}` 
 
 ```typescript
+...
 @component
 export class ErrorMessage extends st.component<IErrorMessageAttrs> {
 
@@ -342,21 +471,14 @@ export class ErrorMessage extends st.component<IErrorMessageAttrs> {
     @ref
     messageElementRef: HTMLElement;
     
-    render() {
-      return <p ref={{ messageElementRef: this }}>
-          { this.message }
-      </p>;
-    }
-    
     onAfterRender() {
-      // native DOM element reference
+      // native DOM element reference; updating the classList:
       this.messageElementRef.classList.add('black');
     }
 }
-st.render(<ErrorMessage message="Happy error :)" />, document.body);
 ```
 
-This is like fishing in the DOM tree and allows you to access DOM elements after they have been \(re-\)rendered.
+This allows you to apply UI updates at highest speed, without any abstraction layer in between your code and the DOM while retaining the modern component architecture pattern.
 {% endtab %}
 
 {% tab title="6. CSS" %}
@@ -370,7 +492,7 @@ You can easily import CSS, CSS as CSS modules \(auto-generates class names, scop
 import "error-message.scss";
 
 // with CSS module support
-import * as styles from "error-message.scss";
+import styles from "error-message.scss";
 
 ...
 
