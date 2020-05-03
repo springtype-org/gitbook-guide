@@ -13,7 +13,7 @@ SpringType is a zero-dependency micro-framework for Website and PWA development.
 > A beautiful new take on modern web development that brings back the fun and simplicity in web development - while pushing modern standards further.
 
 {% hint style="warning" %}
-Please note that SpringType is still in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in Spring 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, bugs may happen more often, API's may change at will and CLIs may break on platforms at times.
+Please note that SpringType is still in **beta phase.** We're looking forward to release the **first stable 1.0.0 GA in Spring 2020** [🌱](https://emojipedia.org/seedling/)🚀😎. As of now, most API's are stable, but we are adding some minor features and fixing bugs.
 
 [Please help us becoming better and report use-cases, suggestions and bugs.](https://github.com/springtype-org/springtype/issues)
 
