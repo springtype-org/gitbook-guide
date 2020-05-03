@@ -20,7 +20,10 @@ In SpringType knows states in three contexts:  ****
 {% tab title="2. Reactive Context" %}
 **Reactive Context**
 
-A context is a singleton state for one class, shared by all instances. It comes with deep  change detection, but no magic will happen, except you decorate methods with `@onContextChange('contextName')`. Those methods will be called:
+A context is a singleton state for one class, shared by all instances. It comes with deep  change detection, but no magic will happen, except you decorate methods with `@onContextChange('contextName')`. Reactive Context is available for:
+
+* Component
+* Service
 
 {% code title="src/page/context/context-page.tsx" %}
 ```typescript
@@ -62,7 +65,7 @@ export class ContextPage extends st.component {
     }
   }
 }
-st.render(<ContextDemo />, document.body);
+st.render(<ContextDemo />);
 ```
 {% endcode %}
 

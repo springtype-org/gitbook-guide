@@ -121,10 +121,6 @@ export class LoginService extends st.service {
 ```
 {% endcode %}
 {% endtab %}
-
-{% tab title="3. Reactive Context States" %}
-TODO
-{% endtab %}
 {% endtabs %}
 
 {% hint style="success" %}
