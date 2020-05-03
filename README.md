@@ -4,7 +4,7 @@ description: "This is a quick introduction to SpringType: \"Hello, world!\" \U00
 
 # Welcome to SpringType!
 
-SpringType is a zero-dependency micro-framework for Website and PWA development. It promotes the use of TypeScript and modern browser APIs. SpringType's unique approach allows for **less complexity**, **tiny footprint**, **high performance** and a **stellar** **developer experience** at the same time ****🚀
+SpringType is a zero-dependency micro-framework for Website and PWA development. It promotes the use of **TypeScript** and modern browser APIs. SpringType's unique approach allows for **less complexity**, **tiny footprint**, **high performance** and a **stellar** **developer experience** at the same time ****🚀
 
 **Why stellar?** Because you gain maximum **flexibility**, **compatibility**, and **high security** with a **zero-dependency** **micro-framework**, that is usually **&lt; 20KiB in size for a production build**.
 
