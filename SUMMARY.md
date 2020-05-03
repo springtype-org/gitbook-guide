@@ -20,7 +20,7 @@
 * [3rd-party Library Support](libraries/README.md)
   * [Materialize.css](https://github.com/springtype-org/st-materialize)
   * [Twitter Bootstrap 4](https://github.com/springtype-org/st-bootstrap)
-  * [Ionic 4](https://github.com/springtype-org/st-ionic)
+  * [Ionic Framework 4](https://github.com/springtype-org/st-ionic)
   * [Font Awesome 5](https://github.com/springtype-org/st-font-awesome)
   * [Google Material.io](https://github.com/springtype-org/st-material)
 * [CLI tools](funding/README.md)
