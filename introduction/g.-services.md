@@ -21,14 +21,60 @@ To communicate and interact with the rest of the application - namely the compon
 
 Writing a service in SpringType is simple:
 
-{% code title="src/demo/service/random-service.ts" %}
+{% code title="src/service/login.ts" %}
 ```typescript
-@service
-export class RandomService extends st.service {
+import { st } from "springtype/core";
+import { service } from "springtype/core/service";
+import { onMessage } from "springtype/core/event-bus/decorator/on-message";
+import { PATH_DASHBOARD_PAGE } from "../page/dashboard/dashboard-page.paths";
+import { PATH_LOGIN_PAGE } from "../page/login/login-page.paths";
 
-  getNewRandom(): number {
-    return Math.random();
-  }
+export interface ILoginEvent {
+    username: string;
+    password: string;
+}
+export const TOPIC_LOGIN = 'LoginService:login';
+
+/**
+ * Simple login service communicating via Reactive Event Bus.
+ * 
+ * Inject this service in components and other services using:
+ * 
+ * @inject(LoginService)
+ * loginService: LoginService;
+ */
+@service
+export class LoginService extends st.service {
+
+    loggedIn: boolean = false;
+    username: string;
+
+    @onMessage(TOPIC_LOGIN)
+    onLogin(loginEvent: ILoginEvent) {
+
+        console.log('LoginService: logging in using credentials....', loginEvent);
+        
+        // mock login state mutation
+        this.loggedIn = true;
+        this.username = loginEvent.username;
+
+        // redirect to dashboard page
+        // now the guard will match
+        st.route = {
+            path: PATH_DASHBOARD_PAGE
+        }
+    }
+
+    isLoggedIn() {
+        return this.loggedIn;
+    }
+
+    logout() {
+        this.loggedIn = false;
+        st.route = {
+            path: PATH_LOGIN_PAGE
+        } 
+    }
 }
 ```
 {% endcode %}
@@ -38,23 +84,42 @@ export class RandomService extends st.service {
 To use a Service like this inside of components or other Services, you just need to inject it like this:
 
 ```typescript
+...
+
 @component
-export class RandomComponent extends st.component {
+export class SomeComponent extends st.component {
 
-  @inject(RandomService)
-  randomService: RandomService;
+  @inject(LoginService)
+  loginService: LoginService;
 
-  render() {
-    return <p>{ this.randomService.getNewRandom() }</p>
-  }
+  ...
 }
-
-st.render(<RandomComponent />, document.body);
 ```
 {% endtab %}
 
 {% tab title="2. Reactive Event Bus" %}
-TODO
+Using the Event Bus with Services is rather easy:
+
+{% code title="src/service/login.ts" %}
+```typescript
+...
+
+@service
+export class LoginService extends st.service {
+  
+  ...
+    
+  // once st.sendMessage(TOPIC_LOGIN, ...) is called/
+  // this method will be triggered
+  @onMessage(TOPIC_LOGIN)
+  onLogin(loginEvent: ILoginEvent) {
+    
+    ...
+  }
+  ...
+}
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="3. Reactive Context States" %}

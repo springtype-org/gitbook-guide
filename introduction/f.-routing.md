@@ -1,3 +1,7 @@
+---
+description: Simple DOM routing - one <Route /> at a time.
+---
+
 # F. Routing
 
 {% tabs %}
@@ -10,28 +14,47 @@ The concept of `<RouteList>` is, that SpringType matches the URL pattern navigat
 
 {% code title="src/index.tsx" %}
 ```typescript
+...
 <RouteList>
-  <Route path={["", "*"]}>
-    <SplashscreenPage />
+  {/* Match: /, /home and any route that doesn't match to other <Route />'s */}
+  <Route path={[PATH_START, PATH_WILDCARD, PATH_HOME_PAGE]}>
+    <HomePage />
   </Route>
 </RouteList>
+...
 ```
 {% endcode %}
 
-This configuration would always show the `<SplashscreenPage />` component, because for either the `/` and every other path \(wildcard `*`\) it would display this one and hide any other `<Route />` provided in the `<RouteList />`.
+This configuration would always show the `<HomePage />` component, because for either the `/` and every other path \(wildcard `*`\) it would display this one and hide any other `<Route />` provided in the `<RouteList />`.
+
+{% hint style="info" %}
+It is a good practice to export constants that define route paths inside of dedicated paths files like: `home-page.paths.ts` This is helpful to prevent unwanted code imports \(Code Split\) and cyclic dependencies. 
+
+{% code title="src/page/home/home-page.paths.ts" %}
+```typescript
+// matches: /#home, /home, #/home 
+export const PATH_HOME_PAGE = 'home';
+```
+{% endcode %}
+{% endhint %}
 
 **Pages**
 
 There is no special meaning in the naming "Page". A page is just a standard component. The only difference is its purpose to display a page layout:
 
-{% code title="src/page/splashscreen.tsx" %}
+{% code title="src/page/home/home-page.tsx" %}
 ```typescript
-@component
-export class SplashscreenPage extends st.component {
+...
 
-    render() {
-        return <p>SplashscreenPage</p>
-    }
+@component
+export class HomePage extends st.component implements ILifecycle {
+
+  render() {
+    return <fragment>
+      <h1>Home</h1>
+      ...
+    </fragment>
+  }
 }
 ```
 {% endcode %}
@@ -44,13 +67,15 @@ You can and should use nested routes. Nesting means to implement a `<RouteList>`
 
 If your project becomes even more sophisticated, you might like to offload bandwidth and keep code from being loading as long as pages are not yet visited by the user. To do so, you can use TypeScripts dynamic import syntax. The bundler with automatically split code at this point:
 
-{% code title="index.tsx" %}
+{% code title="src/index.tsx" %}
 ```typescript
-<Route path={"dashboard"}>
-       
-  {() => import("./page/dashboard")}
-  
+...
+
+<Route path={PATH_SERVICE_PAGE}>
+  {() => import('./page/service/service-page')}
 </Route>
+
+...
 ```
 {% endcode %}
 
@@ -69,11 +94,8 @@ When SpringType routes between paths, it caches component instances. This allows
 Once a path outside the current cache group is visited, the router component cache will be invalidated. Assigning each `<Route />` its own cache group, literally disables caching:
 
 ```bash
-<Route cacheGroup="login" path={[ResetPasswordPage.PATH]}>
-  <template slot={Route.SLOT_NAME_LOADING_COMPONENT}>
-    <MatLoadingIndicator />
-  </template>
-  <ResetPasswordPage />
+<Route cacheGroup="login" path={...}>
+  ...
 </Route>
 ```
 {% endtab %}
@@ -85,12 +107,14 @@ Once a project becomes a bit more sophisticated, we might like to show a custom 
 
 {% code title="src/index.tsx" %}
 ```typescript
-<Route path={["", "*"]}>
+...
+<Route path={PATH_SERVICE_PAGE}>
   <template slot={Route.SLOT_NAME_LOADING_COMPONENT}>
-    <MyCustomLoadingComponent />
+    <p>Loading...</p>
   </template>
-  <SplashscreenPage />
+  {() => import('./page/service/service-page')}
 </Route>
+...
 ```
 {% endcode %}
 {% endtab %}
@@ -98,41 +122,23 @@ Once a project becomes a bit more sophisticated, we might like to show a custom 
 {% tab title="3. Redirects" %}
 **Redirecting programmatically**
 
-Now that we've set up a default route to go to and some animation before, we might like to send the user directly to another page, once the `<SplashscreenPage />` has been shown:
+Now that we've set up a default route to go to and some animation before, we might like to learn how to redirect the user to another page. This is simply done by assigning a new path and optionally, parameters:
 
-{% code title="src/page/splashscreen.tsx" %}
 ```typescript
-@component
-export class SplashscreenPage extends st.component {
+...
 
-  render() {
-    return <p>SplashscreenPage</p>
-  }
+@component
+export class SomeComponent extends st.component {
+
+  ...
     
-  onAfterRender() {
+  onSomeButtonClick() {
     // redirecting to another route
     st.route = {
-      path: LoginPage.PATH,
+      path: PATH_PAGE_LOGIN,
       params: { ... }
     };
   }
-}
-```
-{% endcode %}
-
-To redirect, we just need to set a new path and optionally parameters to provide.
-
-```typescript
-@component({
-    tpl
-})
-export class LoginPage extends st.component {
-
-  // it is a good practice to assign the path statically
-  // This would be valid for: /login, /#/login, /#login
-  static readonly PATH = "login";
-  
-  ...
 }
 ```
 {% endtab %}
@@ -140,21 +146,13 @@ export class LoginPage extends st.component {
 {% tab title="4. Parameters" %}
 **Accessing route parameters**
 
-SpringType supports path parameters. To configure parameters to be mapped automatically, path parameters should be set like this:
+SpringType supports path parameters. Say, we'd like to pass a username via a link parameter, so we could set a default value for the login pages username field:
 
+{% code title="src/page/login/login-page.paths.ts" %}
 ```typescript
-@component({
-    tpl
-})
-export class LoginPage extends st.component {
-
-  // it is a good practice to assign the path statically
-  // This would be valid for: /login, /#/login, /#login
-  static readonly PATH = "login/:username";
-  
-  ...
-}
+export const PATH_LOGIN_PAGE = 'login/:username';
 ```
+{% endcode %}
 
 Doing so, and assuming that the path navigated to looks like this: `/login/johndoe`, you could access the mapped parameters like this:
 
@@ -164,10 +162,7 @@ Doing so, and assuming that the path navigated to looks like this: `/login/johnd
 })
 export class LoginPage extends st.component {
 
-  // it is a good practice to assign the path statically
-  // This would be valid for: /login, /#/login, /#login
-  static readonly PATH = "login/:username";
-  
+  // is called when the route matches and is activated
   onRouteEnter() {
     st.info('username:', st.route.params.username);
   }
@@ -185,7 +180,21 @@ For your convenience, query parameters are mapped automatically with higher prio
 The `<Link />` component allows you to display links to page components. Those links automatically get marked with the CSS class active, when the matching path has been navigated to:
 
 ```typescript
-<Link path={"home"} tag="button" class="home-button">Home</Link>
+<Link path={"login"} tag="button" class="login-page-button">
+  Login page
+</Link>
+```
+
+**Passing parameters**
+
+You can also set parameters in a `<Link />`:
+
+```typescript
+<Link path={"login"} params={{
+  username: 'johndoe'
+}} tag="button" class="login-page-button">
+  Login page
+</Link>
 ```
 {% endtab %}
 
@@ -196,41 +205,45 @@ In many projects we need to protect some pages from being visited when the user 
 
 In SpringType, we do so using guard functions. This feels much like Angular. Guard functions are async functions and promise a TSX component or a path to be returned. This allows you to trigger services, await their response - and while the custom loading component shows its animation, we check for intent validation:
 
-{% code title="index.tsx" %}
+{% code title="src/index.tsx" %}
 ```typescript
-<Route path={[DashboardPage.PATH]} 
+...
+
+<Route path={[PATH_PAGE_DASHBOARD]} 
        guard={this.loginGuard.isLoggedIn}>
-       
-  <template slot={Route.SLOT_NAME_LOADING_COMPONENT}>
-    <DashboardLoadingAnimation />
-  </template>
   
   <DashboardPage />
   
 </Route>
+
+...
 ```
 {% endcode %}
 
 A guard might be implemented as a Service:
 
+{% code title="src/guard/login.ts" %}
 ```typescript
 @service
 export class LoginGuard extends st.service {
 
-  @inject(AuthService)
-  authService: AuthService;
+  @inject(LoginService)
+  loginService: LoginService;
     
   isLoggedIn = async (match: IRouteMatch): 
     Promise<IRouterGuardResponse> => {
     
-    if (!await this.authService.isLoggedIn()) {
-      return LoginPage.PATH;
+    if (!await this.loginService.isLoggedIn()) {
+    
+      // automatically redirect to login page
+      return PATH_LOGIN_PAGE;
     } else {
       return true;
     }
   }
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
