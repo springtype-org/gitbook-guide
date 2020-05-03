@@ -27,7 +27,7 @@ We recommend, to [take approx. 60 minutes to run through our introduction](intro
 But if you're an experienced developer or in a hurry, just run this CLI command:
 
 ```bash
-> npx st-create -c project -t guide -n SpringTypeSandBox
+> npx st-create -c project -t guide -d SpringTypeSandBox
 ```
 
 {% hint style="warning" %}
