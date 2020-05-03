@@ -1,5 +1,5 @@
 ---
-description: "This is a quick introduction to SpringType: \"Hello, world!\" \U0001F603"
+description: "We're happy to see you \U0001F340 - this is our short introduction to SpringType. Have fun \U0001F603"
 ---
 
 # Welcome to SpringType!
