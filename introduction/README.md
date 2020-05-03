@@ -1,15 +1,15 @@
 ---
-description: 'We''re about to learn SpringType in approx. 60 minutes. Are you ready? :-)'
+description: "You're about to learn SpringType in approx. 60 minutes. Ready? \U0001F913"
 ---
 
 # Introduction
 
-SpringType is a micro-framework, putting **Simplicity First**. This is cool, because it means, that we don't need to talk so much, and I don't have to write so much documentation ;-\)   
+SpringType is a micro-framework that puts **Simplicity First**. This is cool, because it means, that you can learn it in a snap, and I don't have to write so much documentation... 😃   
   
-**Let's go, have a lot of fun! May your next project become successful, faster.**
+**Now let's go: Have a lot of fun!**
 
-{% hint style="info" %}
-[Click here](a.-about-typescript.md) to start with the guide now. 
+{% hint style="success" %}
+[**Click here**](a.-about-typescript.md) to start with the introduction course. 
 {% endhint %}
 
 {% hint style="danger" %}

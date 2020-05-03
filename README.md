@@ -31,7 +31,7 @@ But if you're an experienced developer or in a hurry, just run this CLI command:
 ```
 
 {% hint style="warning" %}
-[N](https://nodejs.org)[ode.js](https://nodejs.org) and [yarn](https://classic.yarnpkg.com/en/docs/install) are required to run this command.
+[**`Node.js`**](https://nodejs.org) and [**`yarn`**](https://classic.yarnpkg.com/en/docs/install) are prerequisites. Please install them first.
 {% endhint %}
 
 {% hint style="success" %}
