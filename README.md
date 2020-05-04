@@ -35,7 +35,7 @@ But if you're an experienced developer or in a hurry, just run this CLI command:
 {% endhint %}
 
 {% hint style="info" %}
-_SpringType_ is named like that, because the _Spring_ marks a new beginning, a beautiful new chance to welcome a new era, an era of _Typed_ web development. 
+_SpringType_ is named like that, because every _Spring_ marks a new beginning, a beautiful new chance to welcome a new era, an era of _Typed_ web development. 
 {% endhint %}
 
 {% hint style="success" %}
