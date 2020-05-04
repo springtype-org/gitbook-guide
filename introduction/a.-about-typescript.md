@@ -33,6 +33,12 @@ const sendGreeting = async(greeting: IGreeting) => { ... }
 
 We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/) or [WebStorm](https://www.jetbrains.com/webstorm/) to name two popular ones. This makes sure you'll have less struggle finding imports, get auto-completable API's and see issues ahead of build time.
 {% endhint %}
+
+**Strict type-safety**
+
+In case you like very strict type checking, you can enable the **`strict`** mode in **`tsconfig.json`**:
+
+![](../.gitbook/assets/strict.png)
 {% endtab %}
 
 {% tab title="2. TSX" %}
