@@ -1,5 +1,5 @@
 ---
-description: A quick introduction on how to use TypeScript with SpringType.
+description: A quick introduction on why and how we use TypeScript in SpringType.
 ---
 
 # A. Why TypeScript?
