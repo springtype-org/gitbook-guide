@@ -31,7 +31,7 @@ const sendGreeting = async(greeting: IGreeting) => { ... }
 {% hint style="info" %}
 **Better install a popular IDE**
 
-We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/) or [IntelliJ WebStorm](https://www.jetbrains.com/webstorm/) to name two popular ones. This makes sure you'll have less struggle finding imports, get auto-completable API's and see issues ahead of build time.
+We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/) or [WebStorm](https://www.jetbrains.com/webstorm/) to name two popular ones. This makes sure you'll have less struggle finding imports, get auto-completable API's and see issues ahead of build time.
 {% endhint %}
 {% endtab %}
 
