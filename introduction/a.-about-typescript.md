@@ -38,7 +38,9 @@ We recommend  to work with an IDE like [VS Code](https://code.visualstudio.com/)
 
 In case you like very strict type checking, you can enable the **`strict`** mode in **`tsconfig.json`**:
 
-![](../.gitbook/assets/strict.png)
+![More strict type checking for your project.](../.gitbook/assets/strict.png)
+
+Strict mode enables the following sub-modes: `noImplicitAny`, `noImplicitThis`, `alwaysStrict`, `strictBindCallApply`, `strictNullChecks`, `strictFunctionTypes` and `strictPropertyInitialization`.
 {% endtab %}
 
 {% tab title="2. TSX" %}
