@@ -2,7 +2,7 @@
 description: A quick introduction on how to use TypeScript with SpringType.
 ---
 
-# A. About TypeScript
+# A. Why TypeScript?
 
 {% tabs %}
 {% tab title="1. Type Safety" %}

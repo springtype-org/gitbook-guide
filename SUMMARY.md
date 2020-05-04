@@ -2,7 +2,7 @@
 
 * [Welcome to SpringType!](README.md)
 * [Introduction](introduction/README.md)
-  * [A. About TypeScript](introduction/a.-about-typescript.md)
+  * [A. Why TypeScript?](introduction/a.-about-typescript.md)
   * [B. Starting a new project](introduction/b.-starting-a-new-project.md)
   * [C. Anatomy of a project](introduction/c.-anatomy-of-a-project.md)
   * [D. Components](introduction/d.-components.md)
