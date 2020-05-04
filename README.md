@@ -34,6 +34,10 @@ But if you're an experienced developer or in a hurry, just run this CLI command:
 [**`Node.js`**](https://nodejs.org) and [**`yarn`**](https://classic.yarnpkg.com/en/docs/install) are prerequisites. Please install them first.
 {% endhint %}
 
+{% hint style="info" %}
+_SpringType_ is named like that, because the _Spring_ marks a new beginning, a beautiful new chance to welcome a new era, an era of _Typed_ web development. 
+{% endhint %}
+
 {% hint style="success" %}
 **Still wondering about a thing?** Get in touch with us! [![](.gitbook/assets/gitter.svg)](https://gitter.im/springtype-official/springtype?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)[💬](https://emojipedia.org/speech-balloon/)[🤓](https://emojipedia.org/nerd-face/)
 {% endhint %}
